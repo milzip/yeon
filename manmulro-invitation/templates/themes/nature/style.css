@@ -1,0 +1,18 @@
+/**
+ * Manmulro Invitation Theme: Nature (네이처)
+ * Fresh forest green & botanical tone ideal for hiking, golf, cycling, running, and outdoor gatherings.
+ */
+.mm-inv-theme-nature {
+	--mm-bg: #ecfdf5;
+	--mm-card-bg: #ffffff;
+	--mm-accent: #15803d;
+	--mm-accent-soft: #dcfce7;
+	--mm-text: #14532d;
+	--mm-muted: #3f6212;
+	--mm-border: #bbf7d0;
+	--mm-heading-font: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
+}
+
+.mm-inv-theme-nature .mm-inv-hero {
+	background: linear-gradient(180deg, #dcfce7 0%, #ffffff 100%);
+}

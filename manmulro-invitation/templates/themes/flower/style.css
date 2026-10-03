@@ -1,0 +1,18 @@
+/**
+ * Manmulro Invitation Theme: Flower (플라워 - PREMIUM)
+ * Soft blush & rose botanical styling for celebrations, baby showers, weddings, and parties.
+ */
+.mm-inv-theme-flower {
+	--mm-bg: #fdf2f8;
+	--mm-card-bg: #fffafb;
+	--mm-accent: #db2777;
+	--mm-accent-soft: #fce7f3;
+	--mm-text: #3b0724;
+	--mm-muted: #9d174d;
+	--mm-border: #fbcfe8;
+	--mm-heading-font: "Nanum Myeongjo", "Pretendard", serif;
+}
+
+.mm-inv-theme-flower .mm-inv-hero {
+	background: radial-gradient(circle at top, #fce7f3 0%, #fffafb 75%);
+}

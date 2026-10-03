@@ -1,0 +1,441 @@
+/**
+ * Manmulro Social Login Stylesheet
+ * Supports Login, Signup, wp-login.php integration, and My Account pages.
+ */
+
+.mm-sl-card {
+	max-width: 420px;
+	margin: 32px auto;
+	padding: 32px 28px;
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+	font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+	color: #111827;
+	box-sizing: border-box;
+}
+
+.mm-sl-header {
+	text-align: center;
+	margin-bottom: 24px;
+}
+
+.mm-sl-brand-badge {
+	display: inline-block;
+	padding: 4px 10px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	color: #2563eb;
+	background: #eff6ff;
+	border-radius: 999px;
+	margin-bottom: 8px;
+}
+
+.mm-sl-title {
+	margin: 0 0 8px;
+	font-size: 24px;
+	font-weight: 800;
+	color: #111827;
+}
+
+.mm-sl-subtitle {
+	margin: 0;
+	font-size: 14px;
+	color: #6b7280;
+	line-height: 1.5;
+}
+
+.mm-sl-notice {
+	padding: 12px 14px;
+	border-radius: 10px;
+	font-size: 13px;
+	line-height: 1.5;
+	margin-bottom: 18px;
+}
+
+.mm-sl-notice--error {
+	background: #fef2f2;
+	color: #b91c1c;
+	border: 1px solid #fecaca;
+}
+
+.mm-sl-notice--success {
+	background: #ecfdf5;
+	color: #047857;
+	border: 1px solid #a7f3d0;
+}
+
+.mm-sl-social-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 18px;
+}
+
+.mm-sl-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	height: 48px;
+	padding: 0 18px;
+	border-radius: 10px;
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: none !important;
+	transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+	box-sizing: border-box;
+}
+
+.mm-sl-btn:hover {
+	transform: translateY(-1px);
+	opacity: 0.95;
+}
+
+.mm-sl-btn--kakao {
+	background: #FEE500;
+	color: #191919 !important;
+}
+
+.mm-sl-btn--naver {
+	background: #03C75A;
+	color: #ffffff !important;
+}
+
+.mm-sl-btn--google {
+	background: #ffffff;
+	color: #1f2937 !important;
+	border: 1px solid #d1d5db;
+}
+
+.mm-sl-btn__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mm-sl-divider {
+	display: flex;
+	align-items: center;
+	margin: 20px 0;
+	color: #9ca3af;
+	font-size: 13px;
+}
+
+.mm-sl-divider::before,
+.mm-sl-divider::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: #e5e7eb;
+}
+
+.mm-sl-divider span {
+	padding: 0 12px;
+}
+
+.mm-sl-form {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.mm-sl-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.mm-sl-field label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #374151;
+}
+
+.mm-sl-field input[type="text"],
+.mm-sl-field input[type="email"],
+.mm-sl-field input[type="password"],
+.mm-sl-field textarea {
+	width: 100%;
+	padding: 11px 13px;
+	border: 1px solid #d1d5db;
+	border-radius: 10px;
+	font-size: 14px;
+	color: #111827;
+	background: #f9fafb;
+	box-sizing: border-box;
+}
+
+.mm-sl-field input:focus,
+.mm-sl-field textarea:focus {
+	outline: none;
+	border-color: #2563eb;
+	background: #ffffff;
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.mm-sl-submit-btn,
+.mm-sl-primary-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	padding: 0 20px;
+	background: #111827;
+	color: #ffffff !important;
+	border: none;
+	border-radius: 10px;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none !important;
+}
+
+.mm-sl-submit-btn:hover,
+.mm-sl-primary-btn:hover {
+	background: #1f2937;
+}
+
+.mm-sl-secondary-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 42px;
+	padding: 0 16px;
+	background: #f3f4f6;
+	color: #1f2937 !important;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none !important;
+}
+
+.mm-sl-footer-links {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.mm-sl-footer-links a {
+	color: #2563eb;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.mm-sl-dot {
+	margin: 0 8px;
+}
+
+.mm-sl-privacy-note {
+	margin: 0;
+	font-size: 12px;
+	color: #6b7280;
+	line-height: 1.5;
+}
+
+/* My Account Layout */
+.mm-sl-account-wrap {
+	max-width: 920px;
+	margin: 32px auto;
+	font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+.mm-sl-account-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px;
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	margin-bottom: 20px;
+}
+
+.mm-sl-account-user {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.mm-sl-avatar {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid #e5e7eb;
+}
+
+.mm-sl-account-name {
+	margin: 2px 0;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.mm-sl-account-email {
+	margin: 0;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.mm-sl-logout-link {
+	padding: 8px 14px;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 13px;
+	color: #374151;
+	text-decoration: none;
+}
+
+.mm-sl-account-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.mm-sl-panel {
+	padding: 24px;
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+}
+
+.mm-sl-panel--full {
+	margin-bottom: 20px;
+}
+
+.mm-sl-panel--danger {
+	border-color: #fecaca;
+	background: #fffafa;
+}
+
+.mm-sl-panel-title {
+	margin: 0 0 12px;
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.mm-sl-panel-desc {
+	margin: 0 0 16px;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.mm-sl-provider-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.mm-sl-provider-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 14px;
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
+	background: #f9fafb;
+}
+
+.mm-sl-provider-info {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.mm-sl-provider-badge {
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: 8px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.mm-sl-provider-badge--kakao {
+	background: #FEE500;
+	color: #191919;
+}
+
+.mm-sl-provider-badge--naver {
+	background: #03C75A;
+	color: #ffffff;
+}
+
+.mm-sl-provider-badge--google {
+	background: #ffffff;
+	color: #1f2937;
+	border: 1px solid #d1d5db;
+}
+
+.mm-sl-provider-badge--email {
+	background: #e5e7eb;
+	color: #374151;
+}
+
+.mm-sl-status {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.mm-sl-status--connected {
+	color: #059669;
+}
+
+.mm-sl-status--disconnected {
+	color: #9ca3af;
+}
+
+.mm-sl-connect-btn,
+.mm-sl-unlink-btn {
+	padding: 6px 12px;
+	border-radius: 8px;
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.mm-sl-connect-btn {
+	background: #2563eb;
+	color: #ffffff !important;
+}
+
+.mm-sl-unlink-btn {
+	background: #ffffff;
+	color: #dc2626 !important;
+	border: 1px solid #fca5a5;
+}
+
+.mm-sl-unlink-btn--disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.mm-sl-hint-box {
+	margin: 14px 0 0;
+	padding: 10px 12px;
+	border-radius: 8px;
+	background: #fffbeb;
+	border: 1px solid #fde68a;
+	color: #92400e;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.mm-sl-danger-btn {
+	padding: 10px 16px;
+	border-radius: 8px;
+	background: #dc2626;
+	color: #ffffff;
+	border: none;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+}

@@ -1,0 +1,14 @@
+/**
+ * Manmulro Invitation Theme: Simple (심플)
+ * Clean, high-contrast minimalist typography theme.
+ */
+.mm-inv-theme-simple {
+	--mm-bg: #f8fafc;
+	--mm-card-bg: #ffffff;
+	--mm-accent: #111827;
+	--mm-accent-soft: #f1f5f9;
+	--mm-text: #111827;
+	--mm-muted: #64748b;
+	--mm-border: #e2e8f0;
+	--mm-heading-font: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+}

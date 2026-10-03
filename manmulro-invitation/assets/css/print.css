@@ -1,0 +1,169 @@
+/**
+ * Manmulro Invitation - Print & PDF Stylesheet (`print.css`)
+ * Supports A4, A5, and Postcard (엽서) formats with embedded QR code (#19, #38).
+ */
+
+.mm-inv-print-body {
+	margin: 0;
+	padding: 0;
+	background: #e2e8f0;
+	font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.mm-inv-print-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 24px;
+	background: #0f172a;
+	color: #ffffff;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.mm-inv-print-toolbar__left {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.mm-inv-paper-tab {
+	padding: 6px 12px;
+	border-radius: 8px;
+	color: #cbd5e1 !important;
+	text-decoration: none !important;
+	font-size: 13px;
+	font-weight: 600;
+	border: 1px solid #334155;
+}
+
+.mm-inv-paper-tab.is-active {
+	background: #2563eb;
+	color: #ffffff !important;
+	border-color: #2563eb;
+}
+
+.mm-inv-print-sheet {
+	margin: 28px auto;
+	background: var(--mm-card-bg, #ffffff);
+	color: var(--mm-text, #111827);
+	box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+	box-sizing: border-box;
+	padding: 18mm;
+}
+
+/* Paper Sizes (#38) */
+.mm-inv-print-sheet--a4 {
+	width: 210mm;
+	min-height: 297mm;
+}
+
+.mm-inv-print-sheet--a5 {
+	width: 148mm;
+	min-height: 210mm;
+	padding: 12mm;
+}
+
+.mm-inv-print-sheet--postcard {
+	width: 100mm;
+	min-height: 148mm;
+	padding: 8mm;
+	font-size: 12px;
+}
+
+.mm-inv-print-sheet__inner {
+	border: 1px solid var(--mm-border, #cbd5e1);
+	border-radius: 16px;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100%;
+	box-sizing: border-box;
+}
+
+.mm-inv-print-header {
+	text-align: center;
+	margin-bottom: 18px;
+}
+
+.mm-inv-print-title {
+	margin: 10px 0 8px;
+	font-size: 26px;
+	font-family: var(--mm-heading-font);
+}
+
+.mm-inv-print-sheet--postcard .mm-inv-print-title {
+	font-size: 18px;
+}
+
+.mm-inv-print-subtitle {
+	margin: 0;
+	color: var(--mm-muted, #64748b);
+	font-size: 14px;
+}
+
+.mm-inv-print-cover {
+	margin: 14px 0;
+	border-radius: 12px;
+	overflow: hidden;
+	max-height: 85mm;
+}
+
+.mm-inv-print-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.mm-inv-print-qr-footer {
+	margin-top: 24px;
+	padding-top: 16px;
+	border-top: 2px dashed var(--mm-border, #cbd5e1);
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.mm-inv-print-qr-footer .mm-inv-qr-caption {
+	display: none;
+}
+
+.mm-inv-print-qr-info strong {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+
+.mm-inv-print-qr-info p {
+	margin: 0 0 6px;
+	font-size: 12px;
+	color: #475569;
+}
+
+.mm-inv-print-url {
+	font-size: 12px;
+	padding: 3px 8px;
+	background: #f1f5f9;
+	border-radius: 6px;
+}
+
+@media print {
+	.no-print,
+	.mm-inv-print-toolbar {
+		display: none !important;
+	}
+
+	body.mm-inv-print-body {
+		background: #ffffff !important;
+	}
+
+	.mm-inv-print-sheet {
+		margin: 0 !important;
+		box-shadow: none !important;
+		width: 100% !important;
+		min-height: auto !important;
+	}
+}

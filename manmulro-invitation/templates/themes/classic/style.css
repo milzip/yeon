@@ -1,0 +1,19 @@
+/**
+ * Manmulro Invitation Theme: Classic (클래식)
+ * Warm ivory paper & bronze serif elegance for formal ceremonies, weddings, and milestone birthdays.
+ */
+.mm-inv-theme-classic {
+	--mm-bg: #f5efe6;
+	--mm-card-bg: #fdfaf5;
+	--mm-accent: #7c5a3a;
+	--mm-accent-soft: #f3eadc;
+	--mm-text: #2c2219;
+	--mm-muted: #7a6855;
+	--mm-border: #e6d7c3;
+	--mm-heading-font: "Nanum Myeongjo", "Batang", Georgia, serif;
+}
+
+.mm-inv-theme-classic .mm-inv-hero__title {
+	font-family: var(--mm-heading-font);
+	letter-spacing: 0.04em;
+}
