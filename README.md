@@ -17,6 +17,7 @@
   - **마지막 로그인 수단 연결 해제 보호**: 마지막 남은 로그인 수단 해제 시 `"다른 로그인 방법을 먼저 연결해주세요."` 차단
   - **Open Redirect 방지**: `wp_validate_redirect()` 및 내부 호스트 검증을 통과한 URL만 `?redirect=` 복귀 허용
   - **제공 숏코드**: `[manmulro_login]`, `[manmulro_signup]`, `[manmulro_my_account]`
+  - **설정 매뉴얼**: [`docs/MANMULRO-SOCIAL-LOGIN-SETUP.md`](docs/MANMULRO-SOCIAL-LOGIN-SETUP.md) — 네이버, 카카오, Google 개발자 콘솔 앱 등록과 WordPress 콜백/키 설정 절차
 
 ---
 
