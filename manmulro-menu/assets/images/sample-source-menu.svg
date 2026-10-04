@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 540" width="500" height="540">
+  <rect width="500" height="540" rx="16" fill="#fef3c7" stroke="#92400e" stroke-width="6"/>
+  <rect x="24" y="24" width="452" height="492" rx="10" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+  <text x="250" y="72" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="800" fill="#78350f">만물로 한식당 차림표</text>
+  <line x1="60" y1="92" x2="440" y2="92" stroke="#d97706" stroke-width="2"/>
+
+  <text x="80" y="120" font-family="sans-serif" font-size="15" font-weight="700" fill="#9a3412">[ 식 사 류 ]</text>
+  <!-- Box 1: y=130, h=48 -->
+  <text x="90" y="160" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c1917">김치찌개 ................................ 9,000원</text>
+  <!-- Box 2: y=195, h=48 -->
+  <text x="90" y="225" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c1917">차돌박이 된장찌개 ................. 9,500원</text>
+  <!-- Box 3: y=260, h=48 -->
+  <text x="90" y="290" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c1917">제육볶음 정식 ...................... 11,000원</text>
+
+  <text x="80" y="342" font-family="sans-serif" font-size="15" font-weight="700" fill="#9a3412">[ 사 이 드 · 별 미 ]</text>
+  <!-- Box 4: y=355, h=48 -->
+  <text x="90" y="385" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c1917">해물파전 .............................. 15,000원</text>
+  <!-- Box 5: y=420, h=48 -->
+  <text x="90" y="450" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c1917">수제 감자만두 ........................ 6,000원</text>
+
+  <text x="250" y="495" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#78350f">원산지: 배추김치(국내산), 돼지고기(국내산 한돈), 두부(국내산 대두)</text>
+</svg>

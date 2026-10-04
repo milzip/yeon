@@ -205,21 +205,22 @@ function esc(s) {
 function renderTopNav(activePage) {
 	return `
 	<header style="background:#0f172a;color:#fff;padding:12px 20px;font-family:-apple-system,BlinkMacSystemFont,'Pretendard',sans-serif;border-bottom:1px solid #1e293b;">
-		<div style="max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+		<div style="max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
 			<div style="display:flex;align-items:center;gap:10px;">
-				<span style="background:#2563eb;color:#fff;font-weight:800;font-size:12px;padding:4px 10px;border-radius:999px;">MANMULRO WP PLUGINS V1</span>
-				<strong style="font-size:15px;">만물로 범용 초대장 & 통합 소셜 로그인 라이브 프리뷰</strong>
+				<span style="background:#9a3412;color:#fff;font-weight:800;font-size:12px;padding:4px 10px;border-radius:999px;">MANMULRO WP PLUGINS V1 (3종)</span>
+				<strong style="font-size:14px;">메뉴판 만들기 · 범용 초대장 · 통합 소셜 로그인</strong>
 			</div>
 			<nav style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-				<a href="/" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'editor' ? '#fff' : '#cbd5e1'};background:${activePage === 'editor' ? '#2563eb' : 'transparent'};">✏️ 초대장 편집기 (#15)</a>
-				<a href="/i/a7Fk32" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'single' ? '#fff' : '#cbd5e1'};background:${activePage === 'single' ? '#2563eb' : 'transparent'};">📱 공개 초대장 (/i/a7Fk32)</a>
-				<a href="/i/a7Fk32?print=1&paper=a4" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'print' ? '#fff' : '#cbd5e1'};background:${activePage === 'print' ? '#2563eb' : 'transparent'};">🖨️ 인쇄/QR 뷰 (#38)</a>
-				<a href="/my-invitations" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'my' ? '#fff' : '#cbd5e1'};background:${activePage === 'my' ? '#2563eb' : 'transparent'};">📂 내 초대장·RSVP 관리 (#35)</a>
-				<a href="/wp-admin-demo" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'admin' ? '#fff' : '#cbd5e1'};background:${activePage === 'admin' ? '#2563eb' : 'transparent'};">⚙️ WP 관리자 (#41, #42, #50)</a>
-				<a href="/login" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'login' ? '#fff' : '#cbd5e1'};background:${activePage === 'login' ? '#2563eb' : 'transparent'};">🔐 만물로 로그인 (#10)</a>
-				<a href="/my-account" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'account' ? '#fff' : '#cbd5e1'};background:${activePage === 'account' ? '#2563eb' : 'transparent'};">👤 통합 마이페이지 (#15)</a>
-				<a href="/download/manmulro-invitation.zip" style="padding:7px 12px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:#111827;background:#FEE500;">📦 invitation.zip</a>
-				<a href="/download/manmulro-social-login.zip" style="padding:7px 12px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:#fff;background:#03C75A;">📦 social-login.zip</a>
+				<a href="/menu-builder" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-builder' ? '#fff' : '#fde68a'};background:${activePage === 'menu-builder' ? '#9a3412' : 'rgba(154,52,18,0.35)'};">🍽️ 메뉴판 5단계 빌더</a>
+				<a href="/menu/manmulro-hansik" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-mobile' ? '#fff' : '#fde68a'};background:${activePage === 'menu-mobile' ? '#9a3412' : 'transparent'};">📱 QR 모바일 메뉴판</a>
+				<a href="/menu/manmulro-hansik/kimchi-jjigae" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-detail' ? '#fff' : '#fde68a'};background:${activePage === 'menu-detail' ? '#9a3412' : 'transparent'};">🥘 메뉴 상세페이지 (#9)</a>
+				<a href="/menu/manmulro-hansik?print=1&paper=a4&orientation=portrait" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-print' ? '#fff' : '#fde68a'};background:${activePage === 'menu-print' ? '#9a3412' : 'transparent'};">🖨️ 메뉴판 인쇄 (#14)</a>
+				<a href="/invitation-editor" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:${activePage === 'editor' ? '#fff' : '#cbd5e1'};background:${activePage === 'editor' ? '#2563eb' : 'transparent'};">✏️ 초대장 편집기</a>
+				<a href="/i/a7Fk32" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:${activePage === 'single' ? '#fff' : '#cbd5e1'};background:${activePage === 'single' ? '#2563eb' : 'transparent'};">💌 공개 초대장</a>
+				<a href="/login" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:${activePage === 'login' ? '#fff' : '#cbd5e1'};background:${activePage === 'login' ? '#2563eb' : 'transparent'};">🔐 소셜 로그인</a>
+				<a href="/download/manmulro-menu.zip" style="padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;color:#fff;background:#ea580c;">📦 menu.zip</a>
+				<a href="/download/manmulro-invitation.zip" style="padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;color:#111827;background:#FEE500;">📦 invitation.zip</a>
+				<a href="/download/manmulro-social-login.zip" style="padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;color:#fff;background:#03C75A;">📦 social-login.zip</a>
 			</nav>
 		</div>
 	</header>`;
@@ -1067,6 +1068,494 @@ function renderAdminDemoPage(fishingAdded) {
 </html>`;
 }
 
+function renderMenuBuilderPage() {
+	return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>만물로 메뉴판 만들기 5단계 빌더 | MANMULRO MENU V1</title>
+	<link rel="stylesheet" href="/assets/menu/css/mobile-menu.css" />
+	<link rel="stylesheet" href="/assets/menu/css/builder.css" />
+</head>
+<body style="margin:0;background:#f1f5f9;">
+	${renderTopNav('menu-builder')}
+	<div class="mm-menu-builder-wrap" id="mm-menu-builder-app" data-default-source-img="/assets/menu/images/sample-source-menu.svg">
+		<header class="mm-menu-stepper">
+			<div class="mm-menu-stepper__brand">
+				<strong>만물로 메뉴판 만들기 V1</strong>
+				<span class="mm-menu-autosave-badge" id="mm-menu-autosave-badge">자동 저장됨 (#15)</span>
+			</div>
+			<ol class="mm-menu-stepper__steps" role="tablist">
+				<li><button type="button" class="mm-step-btn is-active" data-step="1">STEP 1. 시작 방법</button></li>
+				<li><button type="button" class="mm-step-btn" data-step="2">STEP 2. 메뉴 구성</button></li>
+				<li><button type="button" class="mm-step-btn" data-step="3">STEP 3. 상세정보 (선택)</button></li>
+				<li><button type="button" class="mm-step-btn" data-step="4">STEP 4. 디자인</button></li>
+				<li><button type="button" class="mm-step-btn" data-step="5">STEP 5. 완성 및 배포</button></li>
+			</ol>
+			<div class="mm-menu-stepper__actions">
+				<button type="button" class="mm-menu-btn mm-menu-btn--outline" id="mm-btn-open-source-modal">🖼️ [원본 메뉴판 보기]</button>
+				<button type="button" class="mm-menu-btn mm-menu-btn--primary" onclick="alert('공통 메뉴 데이터가 저장되었습니다!');">💾 저장하기</button>
+			</div>
+		</header>
+
+		<!-- STEP 1 -->
+		<section class="mm-step-panel is-active" data-step-panel="1">
+			<div class="mm-start-hero">
+				<h2>어떻게 메뉴판을 시작하시겠어요?</h2>
+				<p>"메뉴는 한 번만 입력하세요." 기존 메뉴판이 있으면 사진으로, 없으면 직접 만들어보세요.</p>
+				<div class="mm-start-setup-bar">
+					<label><span>상호명</span><input type="text" id="mm-init-business-name" value="만물로 한식당" /></label>
+					<label>
+						<span>업종 선택 (#6.1)</span>
+						<select id="mm-init-business-type">
+							<option value="음식점" selected>음식점</option>
+							<option value="카페">카페</option>
+							<option value="주점">주점</option>
+							<option value="베이커리">베이커리</option>
+							<option value="미용/뷰티">미용/뷰티</option>
+							<option value="서비스 가격표">서비스 가격표</option>
+							<option value="기타">기타</option>
+						</select>
+					</label>
+				</div>
+				<div class="mm-start-cards">
+					<article class="mm-start-card">
+						<div class="mm-start-card__icon">📸</div>
+						<h3>[사진으로 시작하기]</h3>
+						<p>기존 메뉴판 사진을 업로드하여 OCR로 텍스트·가격·위치 좌표를 추출하고 원본과 나란히 비교·확인합니다 (#5).</p>
+						<button type="button" class="mm-menu-btn mm-menu-btn--primary" id="mm-btn-start-ocr">사진으로 시작하기 (OCR 비교)</button>
+					</article>
+					<article class="mm-start-card">
+						<div class="mm-start-card__icon">✍️</div>
+						<h3>[직접 만들기]</h3>
+						<p>업종별 기본 카테고리(식사·사이드·음료·주류)로 시작해 메뉴명과 가격을 직접 입력합니다 (#6).</p>
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline" id="mm-btn-start-direct">직접 만들기</button>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- STEP 2 -->
+		<section class="mm-step-panel" data-step-panel="2">
+			<div class="mm-step2-toolbar">
+				<div class="mm-step2-toolbar__left">
+					<button type="button" class="mm-submode-btn" id="mm-btn-toggle-ocr-panel">📷 기존 메뉴판에서 가져오기 (OCR 원본 비교 #2.4)</button>
+					<button type="button" class="mm-submode-btn is-active" id="mm-btn-show-menu-manager">📋 공통 메뉴 목록 관리</button>
+				</div>
+				<div class="mm-step2-toolbar__right">
+					<button type="button" class="mm-menu-btn mm-menu-btn--primary" id="mm-btn-add-menu-item">+ 메뉴 추가</button>
+					<button type="button" class="mm-menu-btn mm-menu-btn--outline" data-goto-step="3">다음: 메뉴 상세정보 (STEP 3) →</button>
+				</div>
+			</div>
+
+			<div class="mm-ocr-split-panel" id="mm-ocr-split-panel" hidden>
+				<div class="mm-ocr-split-header">
+					<div>
+						<h3>원본 메뉴판 비교 & OCR 결과 검증 (#5.5 ~ #5.9)</h3>
+						<p>좌측 원본 메뉴판의 파란/주황 박스를 클릭하면 우측 항목이 강조됩니다. 신뢰도 낮은 항목은 <strong>⚠️ 확인 필요</strong>로 표시되며, <strong>[확인하고 메뉴로 가져오기]</strong> 클릭 시에만 공통 메뉴 데이터로 확정됩니다.</p>
+					</div>
+					<div class="mm-ocr-preprocess-controls">
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline" id="mm-btn-ocr-rotate">↻ 회전 (#5.2)</button>
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline" id="mm-btn-ocr-zoom-in">＋ 확대</button>
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline" id="mm-btn-ocr-contrast">◐ 대비 보정</button>
+					</div>
+				</div>
+				<div class="mm-ocr-split-grid">
+					<div class="mm-ocr-source-pane">
+						<div class="mm-ocr-canvas-wrap">
+							<img src="/assets/menu/images/sample-source-menu.svg" alt="원본 메뉴판 (SOURCE_IMAGE)" id="mm-ocr-source-img" />
+							<div class="mm-ocr-bbox-layer" id="mm-ocr-bbox-layer"></div>
+						</div>
+					</div>
+					<div class="mm-ocr-results-pane">
+						<div class="mm-ocr-results-toolbar">
+							<span>인식된 후보 항목 (자동 확정 금지 원칙 #2.2, #5.8)</span>
+							<button type="button" class="mm-menu-btn mm-menu-btn--outline mm-menu-btn--sm" id="mm-btn-add-ocr-row">+ 행 추가</button>
+						</div>
+						<div class="mm-ocr-rows-list" id="mm-ocr-rows-list"></div>
+						<div class="mm-ocr-confirm-footer">
+							<button type="button" class="mm-menu-btn mm-menu-btn--primary mm-menu-btn--full" id="mm-btn-confirm-ocr-import">✅ [확인하고 메뉴로 가져오기] (#5.9)</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mm-common-menu-manager" id="mm-common-menu-manager">
+				<div class="mm-category-bar">
+					<div class="mm-category-tabs" id="mm-builder-category-tabs"></div>
+					<div class="mm-category-add">
+						<input type="text" id="mm-new-category-name" placeholder="새 카테고리명" />
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline mm-menu-btn--sm" id="mm-btn-add-category">+ 카테고리 추가</button>
+					</div>
+				</div>
+				<div class="mm-bulk-bar">
+					<label class="mm-bulk-check-all">
+						<input type="checkbox" id="mm-bulk-select-all" />
+						<span>전체 선택 (<strong id="mm-bulk-selected-count">0</strong>개)</span>
+					</label>
+					<div class="mm-bulk-actions">
+						<span>일괄 가격 조정 (#16.1):</span>
+						<button type="button" class="mm-bulk-chip" data-bulk-type="price_delta" data-delta="500">+500원</button>
+						<button type="button" class="mm-bulk-chip" data-bulk-type="price_delta" data-delta="1000">+1,000원</button>
+						<button type="button" class="mm-bulk-chip" data-bulk-type="price_delta" data-delta="-500">-500원</button>
+						<span>일괄 상태 변경 (#16.2):</span>
+						<button type="button" class="mm-bulk-chip" data-bulk-type="status" data-status="ACTIVE">판매중</button>
+						<button type="button" class="mm-bulk-chip" data-bulk-type="status" data-status="SOLD_OUT">품절</button>
+						<button type="button" class="mm-bulk-chip" data-bulk-type="status" data-status="HIDDEN">숨김</button>
+						<select id="mm-bulk-target-category"></select>
+					</div>
+				</div>
+				<div class="mm-builder-items-list" id="mm-builder-items-list"></div>
+			</div>
+		</section>
+
+		<!-- STEP 3 -->
+		<section class="mm-step-panel" data-step-panel="3">
+			<div class="mm-step3-layout">
+				<aside class="mm-step3-sidebar">
+					<h3>상세정보를 입력할 메뉴 선택</h3>
+					<p style="font-size:12px;color:#64748b;">필요한 메뉴에만 선택적으로 상세 설명·재료·맛 특징·알레르기·원산지를 입력하세요 (#8).</p>
+					<div class="mm-step3-item-picker" id="mm-step3-item-picker"></div>
+				</aside>
+				<div class="mm-step3-editor">
+					<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+						<h3 id="mm-detail-editing-title" style="margin:0;">메뉴 상세정보</h3>
+						<a href="/menu/manmulro-hansik/kimchi-jjigae" target="_blank" id="mm-detail-preview-link" class="mm-menu-btn mm-menu-btn--outline mm-menu-btn--sm">🔗 상세페이지 열기 ↗</a>
+					</div>
+					<div class="mm-form-group">
+						<label>상세 설명 — 이 음식은 어떤 음식인가요? (#8.1)</label>
+						<textarea id="mm-detail-description" rows="3"></textarea>
+					</div>
+					<div class="mm-form-group">
+						<label>주요 재료 및 재료 설명 (#8.2, #8.3)</label>
+						<div id="mm-detail-ingredients-rows"></div>
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline mm-menu-btn--sm" id="mm-btn-add-ingredient">+ 주요 재료 추가</button>
+					</div>
+					<div class="mm-form-group">
+						<label>맛 특징 (0~5점 → ●●●○○ #8.4)</label>
+						<div class="mm-flavor-grid">
+							${['매운맛', '단맛', '짠맛', '신맛', '고소함', '담백함']
+								.map(
+									(f) => `<label class="mm-flavor-control"><span>${f}</span><input type="range" min="0" max="5" value="0" class="mm-flavor-slider" data-flavor="${f}" /><output class="mm-flavor-output">○○○○○</output></label>`
+								)
+								.join('')}
+						</div>
+					</div>
+					<div class="mm-form-group">
+						<label>추천 대상 (#8.5)</label>
+						<input type="text" id="mm-detail-recommended" />
+					</div>
+					<div class="mm-form-group">
+						<label>알레르기 정보 (체크한 항목만 표시 — 절대 추측 금지 #8.6, #28.7)</label>
+						<div class="mm-allergen-checks">
+							${['우유', '계란', '대두', '밀', '땅콩', '견과류', '갑각류', '생선', '기타']
+								.map((a) => `<label class="mm-check-pill"><input type="checkbox" class="mm-allergen-cb" value="${a}" /><span>${a}</span></label>`)
+								.join('')}
+						</div>
+					</div>
+					<div class="mm-form-group">
+						<label>원산지 정보 (직접 입력한 정보만 표시 #8.7, #28.7)</label>
+						<div id="mm-detail-origins-rows"></div>
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline mm-menu-btn--sm" id="mm-btn-add-origin">+ 원산지 항목 추가</button>
+					</div>
+					<div style="display:flex;gap:10px;">
+						<button type="button" class="mm-menu-btn mm-menu-btn--primary" id="mm-btn-save-item-detail">💾 이 메뉴의 상세정보 저장</button>
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline" data-goto-step="4">다음: 메뉴판 디자인 (STEP 4) →</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- STEP 4 -->
+		<section class="mm-step-panel" data-step-panel="4">
+			<div class="mm-step4-layout">
+				<div class="mm-step4-controls">
+					<h3>기본 템플릿 선택 (8종 #12.1)</h3>
+					<div class="mm-template-grid">
+						${[
+							{ slug: 'korean', name: '한식', desc: '정갈한 한식당 디자인', p: '#9a3412', bg: '#fffbeb', t: '#1c1917' },
+							{ slug: 'cafe', name: '카페', desc: '에스프레소 & 크림 톤', p: '#78350f', bg: '#faf8f5', t: '#292524' },
+							{ slug: 'fine_dining', name: '고급 레스토랑', desc: '다크 차콜 & 골드', p: '#b45309', bg: '#18181b', t: '#f4f4f5' },
+							{ slug: 'simple', name: '심플', desc: '화이트 & 블랙', p: '#111827', bg: '#ffffff', t: '#111827' },
+							{ slug: 'modern', name: '모던', desc: '세련된 블루 포인트', p: '#2563eb', bg: '#f8fafc', t: '#0f172a' },
+							{ slug: 'traditional', name: '전통', desc: '한지 질감과 먹색', p: '#57534e', bg: '#f5f0e6', t: '#1c1917' },
+							{ slug: 'bakery', name: '베이커리', desc: '따뜻한 버터 옐로우', p: '#d97706', bg: '#fffdf7', t: '#451a03' },
+							{ slug: 'pub', name: '주점', desc: '다크 네이비 & 앰버', p: '#f59e0b', bg: '#0f172a', t: '#f8fafc' }
+						]
+							.map(
+								(tpl, i) => `<button type="button" class="mm-template-card ${i === 0 ? 'is-active' : ''}" data-template="${tpl.slug}" data-primary="${tpl.p}" data-bg="${tpl.bg}" data-text="${tpl.t}"><span class="mm-template-swatch" style="background:${tpl.bg};border-color:${tpl.p};color:${tpl.p};">Aa</span><strong>${tpl.name}</strong><small>${tpl.desc}</small></button>`
+							)
+							.join('')}
+					</div>
+					<h3>세부 디자인 설정 (#12.2)</h3>
+					<div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+						<label>대표 색상 <input type="color" id="mm-design-primary-color" value="#9a3412" /></label>
+						<label>배경 색상 <input type="color" id="mm-design-bg-color" value="#fffbeb" /></label>
+						<label>글자 색상 <input type="color" id="mm-design-text-color" value="#1c1917" /></label>
+						<label>가격 스타일 <select id="mm-design-price-style"><option value="won">9,000원</option><option value="comma">₩9,000</option><option value="dots">···· 9,000원</option></select></label>
+						<label><input type="checkbox" id="mm-design-show-images" checked /> 메뉴 사진 표시</label>
+					</div>
+					<div style="margin-top:20px;">
+						<button type="button" class="mm-menu-btn mm-menu-btn--primary" data-goto-step="5">다음: 완성 및 배포 (STEP 5) →</button>
+					</div>
+				</div>
+				<div class="mm-step4-preview">
+					<div class="mm-phone-mockup">
+						<div class="mm-phone-mockup__notch">실시간 모바일 메뉴판 미리보기 (#12.3)</div>
+						<div class="mm-phone-mockup__screen" id="mm-live-design-preview"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- STEP 5 -->
+		<section class="mm-step-panel" data-step-panel="5">
+			<div class="mm-publish-grid">
+				<article class="mm-publish-card">
+					<h3>1. 모바일 QR 메뉴판 (#13)</h3>
+					<p>메뉴나 가격을 수정해도 QR 코드와 메뉴판 주소는 절대 변경되지 않습니다 (#13.1, #28.5).</p>
+					<div class="mm-publish-url-box">
+						<input type="text" id="mm-publish-public-url" readonly value="/menu/manmulro-hansik" />
+						<button type="button" class="mm-menu-btn mm-menu-btn--outline" id="mm-btn-copy-public-url">주소 복사</button>
+						<a href="/menu/manmulro-hansik" target="_blank" class="mm-menu-btn mm-menu-btn--primary" id="mm-link-open-public-url">모바일 메뉴판 열기 ↗</a>
+					</div>
+					<div id="mm-publish-qr-holder"></div>
+				</article>
+				<article class="mm-publish-card">
+					<h3>2. A4 / A3 세로·가로 인쇄용 메뉴판 (#14)</h3>
+					<p>동일한 공통 메뉴 데이터로 인쇄용 메뉴판(PDF / JPG / PNG)을 생성합니다.</p>
+					<div class="mm-print-links-grid">
+						<a href="/menu/manmulro-hansik?print=1&paper=a4&orientation=portrait" target="_blank" class="mm-menu-btn mm-menu-btn--primary" data-print-paper="a4" data-print-orient="portrait">🖨️ A4 세로 인쇄/PDF</a>
+						<a href="/menu/manmulro-hansik?print=1&paper=a4&orientation=landscape" target="_blank" class="mm-menu-btn mm-menu-btn--outline" data-print-paper="a4" data-print-orient="landscape">🖨️ A4 가로 인쇄/PDF</a>
+						<a href="/menu/manmulro-hansik?print=1&paper=a3&orientation=portrait" target="_blank" class="mm-menu-btn mm-menu-btn--outline" data-print-paper="a3" data-print-orient="portrait">🖨️ A3 세로 인쇄/PDF</a>
+						<a href="/menu/manmulro-hansik?print=1&paper=a3&orientation=landscape" target="_blank" class="mm-menu-btn mm-menu-btn--outline" data-print-paper="a3" data-print-orient="landscape">🖨️ A3 가로 인쇄/PDF</a>
+					</div>
+				</article>
+				<article class="mm-publish-card">
+					<h3>3. 개별 메뉴 상세페이지 고유 URL (#9.1, #9.2)</h3>
+					<ul id="mm-publish-item-urls" style="list-style:none;padding:0;margin:0;"></ul>
+				</article>
+			</div>
+		</section>
+
+		<!-- Source Modal (#11) -->
+		<div class="mm-source-modal" id="mm-source-modal" hidden>
+			<div class="mm-source-modal__backdrop" id="mm-source-modal-close"></div>
+			<div class="mm-source-modal__dialog">
+				<div class="mm-source-modal__header">
+					<h3>원본 메뉴판 보기 (SOURCE_IMAGE 보관 및 위치 확인 #11)</h3>
+					<button type="button" class="mm-menu-btn mm-menu-btn--outline mm-menu-btn--sm" id="mm-source-modal-close-btn">닫기 ✕</button>
+				</div>
+				<div class="mm-ocr-canvas-wrap">
+					<img src="/assets/menu/images/sample-source-menu.svg" alt="원본 메뉴판" id="mm-modal-source-img" />
+					<div class="mm-ocr-bbox-layer" id="mm-modal-bbox-layer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/assets/menu/js/ocr-viewer.js"></script>
+	<script src="/assets/menu/js/mobile-menu.js"></script>
+	<script src="/assets/menu/js/builder.js"></script>
+</body>
+</html>`;
+}
+
+function renderMobileMenuPage(isPrint, paper, orientation) {
+	if (isPrint) {
+		const p = paper === 'a3' ? 'a3' : 'a4';
+		const o = orientation === 'landscape' ? 'landscape' : 'portrait';
+		return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>만물로 한식당 - 인쇄용 메뉴판 (#14)</title>
+	<link rel="stylesheet" href="/assets/menu/css/mobile-menu.css" />
+	<link rel="stylesheet" href="/assets/menu/css/print-menu.css" />
+</head>
+<body class="mm-menu-print-body mm-paper-${p} mm-orient-${o}">
+	<div class="no-print" style="margin:-24px -24px 20px;">${renderTopNav('menu-print')}</div>
+	<div class="mm-menu-print-toolbar no-print">
+		<div class="mm-menu-print-toolbar__group">
+			<a href="/menu/manmulro-hansik" class="mm-menu-btn mm-menu-btn--outline">← 모바일 메뉴판</a>
+			<span>용지:</span>
+			<a href="/menu/manmulro-hansik?print=1&paper=a4&orientation=${o}" class="mm-print-chip ${p === 'a4' ? 'is-active' : ''}">A4</a>
+			<a href="/menu/manmulro-hansik?print=1&paper=a3&orientation=${o}" class="mm-print-chip ${p === 'a3' ? 'is-active' : ''}">A3</a>
+			<span>방향:</span>
+			<a href="/menu/manmulro-hansik?print=1&paper=${p}&orientation=portrait" class="mm-print-chip ${o === 'portrait' ? 'is-active' : ''}">세로</a>
+			<a href="/menu/manmulro-hansik?print=1&paper=${p}&orientation=landscape" class="mm-print-chip ${o === 'landscape' ? 'is-active' : ''}">가로</a>
+		</div>
+		<div class="mm-menu-print-toolbar__group">
+			<button type="button" onclick="window.print();" class="mm-menu-btn mm-menu-btn--primary">🖨️ PDF 인쇄 / 저장</button>
+		</div>
+	</div>
+	<article class="mm-menu-print-sheet">
+		<header class="mm-menu-print-header">
+			<div>
+				<span class="mm-menu-store-type">음식점 MENU</span>
+				<h1>만물로 한식당</h1>
+			</div>
+			<div class="mm-menu-qr-box" data-qr-url="https://manmulro.com/menu/manmulro-hansik" data-qr-size="96">
+				<div class="mm-menu-qr-canvas"></div>
+			</div>
+		</header>
+		<div class="mm-menu-print-columns">
+			<section class="mm-menu-print-cat">
+				<h2>식사</h2>
+				<div class="mm-menu-print-row"><div class="mm-menu-print-row__main"><strong>김치찌개</strong><span class="mm-menu-print-row__price">9,000원</span></div><p class="mm-menu-print-row__desc">국내산 숙성 김치와 한돈으로 깊게 끓인 대표 찌개</p></div>
+				<div class="mm-menu-print-row"><div class="mm-menu-print-row__main"><strong>차돌박이 된장찌개</strong><span class="mm-menu-print-row__price">9,500원</span></div><p class="mm-menu-print-row__desc">고소한 차돌박이와 전통 집된장의 구수한 조화</p></div>
+				<div class="mm-menu-print-row"><div class="mm-menu-print-row__main"><strong>제육볶음 정식</strong><span class="mm-menu-print-row__price">11,000원</span></div><p class="mm-menu-print-row__desc">매콤달콤 불향 가득한 한돈 제육볶음과 쌈채소</p></div>
+			</section>
+			<section class="mm-menu-print-cat">
+				<h2>사이드 · 별미</h2>
+				<div class="mm-menu-print-row"><div class="mm-menu-print-row__main"><strong>해물파전</strong><span class="mm-menu-print-row__price">15,000원</span></div><p class="mm-menu-print-row__desc">오징어·새우와 향긋한 쪽파를 바삭하게 부쳐낸 별미</p></div>
+				<div class="mm-menu-print-row"><div class="mm-menu-print-row__main"><strong>수제 감자만두</strong><span class="mm-menu-print-row__price">6,000원</span></div><p class="mm-menu-print-row__desc">쫄깃한 감자피에 속이 꽉 찬 수제 찐만두</p></div>
+			</section>
+		</div>
+		<footer class="mm-menu-print-footer">
+			<span>상단 QR 코드를 스캔하시면 각 메뉴의 상세 사진·재료·맛 특징·알레르기·원산지 정보를 확인하실 수 있습니다.</span>
+			<code>/menu/manmulro-hansik</code>
+		</footer>
+	</article>
+	<script src="/assets/menu/js/mobile-menu.js"></script>
+</body>
+</html>`;
+	}
+
+	return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>만물로 한식당 | 모바일 QR 메뉴판 (#13)</title>
+	<link rel="stylesheet" href="/assets/menu/css/mobile-menu.css" />
+</head>
+<body class="mm-menu-mobile-body">
+	${renderTopNav('menu-mobile')}
+	<main class="mm-menu-mobile-shell">
+		<header class="mm-menu-store-header">
+			<span class="mm-menu-store-type">음식점</span>
+			<h1 class="mm-menu-store-title">만물로 한식당</h1>
+		</header>
+		<nav class="mm-menu-cat-nav">
+			<button type="button" class="mm-menu-cat-pill is-active" data-filter-cat="all">[전체]</button>
+			<button type="button" class="mm-menu-cat-pill" data-filter-cat="1">[식사]</button>
+			<button type="button" class="mm-menu-cat-pill" data-filter-cat="2">[사이드]</button>
+		</nav>
+		<section class="mm-menu-list-section">
+			<div class="mm-menu-category-group" data-category-group="1">
+				<h2 class="mm-menu-category-heading">식사</h2>
+				<div class="mm-menu-items-stack">
+					<a href="/menu/manmulro-hansik/kimchi-jjigae" class="mm-menu-item-card">
+						<div class="mm-menu-item-card__info">
+							<div class="mm-menu-item-card__tags"><span class="mm-menu-tag">대표 메뉴</span><span class="mm-menu-tag">인기 메뉴</span></div>
+							<h3 class="mm-menu-item-card__name">김치찌개</h3>
+							<p class="mm-menu-item-card__desc">국내산 숙성 김치와 한돈으로 깊게 끓인 대표 찌개</p>
+							<div class="mm-menu-item-card__price">9,000원</div>
+						</div>
+					</a>
+					<a href="/menu/manmulro-hansik/chadol-doenjang" class="mm-menu-item-card">
+						<div class="mm-menu-item-card__info">
+							<div class="mm-menu-item-card__tags"><span class="mm-menu-tag">추천 메뉴</span></div>
+							<h3 class="mm-menu-item-card__name">차돌박이 된장찌개</h3>
+							<p class="mm-menu-item-card__desc">고소한 차돌박이와 전통 집된장의 구수한 조화</p>
+							<div class="mm-menu-item-card__price">9,500원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="mm-menu-category-group" data-category-group="2">
+				<h2 class="mm-menu-category-heading">사이드</h2>
+				<div class="mm-menu-items-stack">
+					<a href="/menu/manmulro-hansik/haemul-pajeon" class="mm-menu-item-card">
+						<div class="mm-menu-item-card__info">
+							<div class="mm-menu-item-card__tags"><span class="mm-menu-tag">인기 메뉴</span></div>
+							<h3 class="mm-menu-item-card__name">해물파전</h3>
+							<p class="mm-menu-item-card__desc">오징어·새우와 향긋한 쪽파를 바삭하게 부쳐낸 별미</p>
+							<div class="mm-menu-item-card__price">15,000원</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</section>
+		<footer class="mm-menu-mobile-footer">
+			<p>메뉴를 터치하면 사진·재료·맛 특징·알레르기·원산지 상세 정보를 확인할 수 있습니다 (#9, #13.5).</p>
+		</footer>
+	</main>
+	<script src="/assets/menu/js/mobile-menu.js"></script>
+</body>
+</html>`;
+}
+
+function renderMenuItemDetailPage(itemSlug) {
+	return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>김치찌개 - 만물로 한식당 메뉴 상세페이지 (#9)</title>
+	<link rel="stylesheet" href="/assets/menu/css/mobile-menu.css" />
+</head>
+<body class="mm-menu-mobile-body">
+	${renderTopNav('menu-detail')}
+	<main class="mm-menu-mobile-shell mm-menu-detail-shell">
+		<div class="mm-menu-detail-topbar">
+			<a href="/menu/manmulro-hansik" class="mm-menu-back-link">← 메뉴판으로 돌아가기</a>
+			<button type="button" class="mm-menu-share-btn" data-share-url="https://manmulro.com/menu/manmulro-hansik/${esc(itemSlug)}" data-share-title="김치찌개 | 만물로 한식당">🔗 공유하기</button>
+		</div>
+		<header class="mm-menu-detail-header">
+			<div class="mm-menu-item-card__tags"><span class="mm-menu-tag">대표 메뉴</span><span class="mm-menu-tag">인기 메뉴</span></div>
+			<h1 class="mm-menu-detail-title">김치찌개</h1>
+			<div class="mm-menu-detail-price">9,000원</div>
+			<p class="mm-menu-detail-short">국내산 숙성 김치와 한돈으로 깊게 끓인 대표 찌개</p>
+		</header>
+		<section class="mm-menu-detail-card">
+			<h2>이 음식은 어떤 음식인가요?</h2>
+			<p>직접 담근 1년 숙성 김치와 국내산 생삼겹살, 국산 대두 두부를 듬뿍 넣어 얼큰하고 깊게 끓여낸 만물로 한식당의 대표 식사 메뉴입니다.</p>
+		</section>
+		<section class="mm-menu-detail-card">
+			<h2>주요 재료</h2>
+			<ul class="mm-menu-ingredient-chips">
+				<li><strong>숙성 배추김치</strong> <span>— 직접 담근 1년 해남 배추김치</span></li>
+				<li><strong>국내산 한돈</strong> <span>— 신선한 생삼겹살</span></li>
+				<li><strong>국산 두부</strong> <span>— 매일 아침 만든 손두부</span></li>
+			</ul>
+		</section>
+		<section class="mm-menu-detail-card">
+			<h2>맛 특징</h2>
+			<div class="mm-menu-flavor-list">
+				<div class="mm-menu-flavor-row"><span>매운맛</span><span class="mm-menu-flavor-row__dots">●●●○○</span></div>
+				<div class="mm-menu-flavor-row"><span>고소함</span><span class="mm-menu-flavor-row__dots">●●●●○</span></div>
+				<div class="mm-menu-flavor-row"><span>담백함</span><span class="mm-menu-flavor-row__dots">●●●●○</span></div>
+			</div>
+		</section>
+		<section class="mm-menu-detail-card">
+			<h2>추천 대상</h2>
+			<p>얼큰하고 깊은 국물을 좋아하시는 분 / 든든한 한 끼 식사를 찾으시는 분</p>
+		</section>
+		<section class="mm-menu-detail-card">
+			<h2>알레르기 정보</h2>
+			<p>대두 / 돼지고기</p>
+		</section>
+		<section class="mm-menu-detail-card">
+			<h2>원산지</h2>
+			<ul class="mm-menu-origin-list">
+				<li><strong>돼지고기:</strong> 국내산 한돈</li>
+				<li><strong>배추김치:</strong> 국내산 (배추·고춧가루 국내산)</li>
+				<li><strong>두부:</strong> 국내산 대두</li>
+			</ul>
+		</section>
+		<div class="mm-menu-detail-bottom-actions">
+			<a href="/menu/manmulro-hansik" class="mm-menu-btn mm-menu-btn--outline">[메뉴판으로 돌아가기]</a>
+			<button type="button" class="mm-menu-btn mm-menu-btn--primary mm-menu-share-btn" data-share-url="https://manmulro.com/menu/manmulro-hansik/${esc(itemSlug)}">[공유하기]</button>
+		</div>
+	</main>
+	<script src="/assets/menu/js/mobile-menu.js"></script>
+</body>
+</html>`;
+}
+
 const server = http.createServer((req, res) => {
 	const parsed = url.parse(req.url, true);
 	const pathname = parsed.pathname;
@@ -1100,8 +1589,29 @@ const server = http.createServer((req, res) => {
 		}
 	}
 
+	if (pathname.startsWith('/assets/menu/')) {
+		const rel = pathname.replace('/assets/menu/', '');
+		const mapped = path.join(__dirname, 'manmulro-menu', 'assets', rel);
+		if (fs.existsSync(mapped)) {
+			const ext = path.extname(mapped);
+			const mime =
+				ext === '.css'
+					? 'text/css; charset=utf-8'
+					: ext === '.svg'
+					? 'image/svg+xml'
+					: 'application/javascript; charset=utf-8';
+			res.writeHead(200, { 'Content-Type': mime });
+			fs.createReadStream(mapped).pipe(res);
+			return;
+		}
+	}
+
 	// Serve downloadable WordPress Plugin ZIP files
-	if (pathname === '/download/manmulro-invitation.zip' || pathname === '/download/manmulro-social-login.zip') {
+	if (
+		pathname === '/download/manmulro-menu.zip' ||
+		pathname === '/download/manmulro-invitation.zip' ||
+		pathname === '/download/manmulro-social-login.zip'
+	) {
 		const zipFile = path.basename(pathname);
 		const fullPath = path.join(__dirname, zipFile);
 		if (fs.existsSync(fullPath)) {
@@ -1260,7 +1770,34 @@ const server = http.createServer((req, res) => {
 		return;
 	}
 
-	// Default `/` -> Invitation Editor
+	// Manmulro Menu Builder (`/menu-builder`)
+	if (pathname === '/menu-builder' || pathname === '/menu-builder/') {
+		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+		res.end(renderMenuBuilderPage());
+		return;
+	}
+
+	// Manmulro Menu Public Store & Item Detail (`/menu/{store}` and `/menu/{store}/{item}`)
+	if (pathname.startsWith('/menu/')) {
+		const parts = pathname.replace(/^\/menu\//, '').replace(/\/$/, '').split('/');
+		if (parts.length >= 2 && parts[1]) {
+			res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+			res.end(renderMenuItemDetailPage(parts[1]));
+			return;
+		}
+		const isPrint = parsed.query && parsed.query.print === '1';
+		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+		res.end(renderMobileMenuPage(isPrint, parsed.query && parsed.query.paper, parsed.query && parsed.query.orientation));
+		return;
+	}
+
+	// Default `/` -> Menu Builder (or Invitation Editor if `/invitation-editor` or `?id=` is passed)
+	if (pathname !== '/invitation-editor' && (!parsed.query || !parsed.query.id)) {
+		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+		res.end(renderMenuBuilderPage());
+		return;
+	}
+
 	const editId = parsed.query && parsed.query.id ? Number(parsed.query.id) : 101;
 	const inv = store.invitations.find((x) => x.id === editId) || store.invitations[0];
 	res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });

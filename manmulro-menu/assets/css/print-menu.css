@@ -1,0 +1,151 @@
+/**
+ * MANMULRO MENU — Print Menu Styles (`assets/css/print-menu.css` #14)
+ */
+
+.mm-menu-print-body {
+	margin: 0;
+	padding: 24px;
+	background: #e5e7eb;
+	font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
+}
+
+.mm-menu-print-toolbar {
+	max-width: 960px;
+	margin: 0 auto 20px;
+	background: #ffffff;
+	padding: 12px 18px;
+	border-radius: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.mm-menu-print-toolbar__group {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.mm-print-chip {
+	padding: 6px 12px;
+	border-radius: 8px;
+	border: 1px solid #d1d5db;
+	text-decoration: none;
+	color: #111827;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.mm-print-chip.is-active {
+	background: #9a3412;
+	border-color: #9a3412;
+	color: #ffffff;
+}
+
+.mm-menu-print-sheet {
+	margin: 0 auto;
+	background: #fffbeb;
+	color: #1c1917;
+	padding: 36px 40px;
+	box-sizing: border-box;
+	border: 2px solid #9a3412;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.mm-paper-a4.mm-orient-portrait .mm-menu-print-sheet {
+	width: 210mm;
+	min-height: 297mm;
+}
+
+.mm-paper-a4.mm-orient-landscape .mm-menu-print-sheet {
+	width: 297mm;
+	min-height: 210mm;
+}
+
+.mm-paper-a3.mm-orient-portrait .mm-menu-print-sheet {
+	width: 297mm;
+	min-height: 420mm;
+}
+
+.mm-paper-a3.mm-orient-landscape .mm-menu-print-sheet {
+	width: 420mm;
+	min-height: 297mm;
+}
+
+.mm-menu-print-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 3px double #9a3412;
+	padding-bottom: 18px;
+	margin-bottom: 24px;
+}
+
+.mm-menu-print-header h1 {
+	margin: 6px 0 0;
+	font-size: 32px;
+}
+
+.mm-menu-print-columns {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 28px;
+}
+
+.mm-menu-print-cat h2 {
+	font-size: 20px;
+	border-bottom: 2px solid #9a3412;
+	padding-bottom: 6px;
+	margin: 0 0 12px;
+	color: #9a3412;
+}
+
+.mm-menu-print-row {
+	padding: 8px 0;
+	border-bottom: 1px dashed rgba(28, 25, 23, 0.2);
+}
+
+.mm-menu-print-row__main {
+	display: flex;
+	justify-content: space-between;
+	font-size: 16px;
+}
+
+.mm-menu-print-row__price {
+	font-weight: 800;
+	color: #9a3412;
+}
+
+.mm-menu-print-row__desc {
+	margin: 4px 0 0;
+	font-size: 12px;
+	color: #57534e;
+}
+
+.mm-menu-print-footer {
+	margin-top: 32px;
+	padding-top: 14px;
+	border-top: 1px solid rgba(28, 25, 23, 0.25);
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+}
+
+@media print {
+	.no-print {
+		display: none !important;
+	}
+	.mm-menu-print-body {
+		padding: 0;
+		background: #ffffff;
+	}
+	.mm-menu-print-sheet {
+		box-shadow: none;
+		width: 100% !important;
+		min-height: auto !important;
+	}
+}

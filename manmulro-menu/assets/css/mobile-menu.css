@@ -1,0 +1,347 @@
+/**
+ * MANMULRO MENU — Customer Mobile QR Menu & Item Detail Styles (`assets/css/mobile-menu.css`)
+ */
+
+:root {
+	--mm-menu-primary: #9a3412;
+	--mm-menu-bg: #fffbeb;
+	--mm-menu-text: #1c1917;
+	--mm-menu-card-bg: #ffffff;
+	--mm-menu-border: rgba(28, 25, 23, 0.12);
+}
+
+.mm-menu-mobile-body {
+	margin: 0;
+	padding: 0;
+	background: var(--mm-menu-bg);
+	color: var(--mm-menu-text);
+	font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.mm-menu-tpl-fine_dining,
+.mm-menu-tpl-pub {
+	--mm-menu-card-bg: rgba(255, 255, 255, 0.06);
+	--mm-menu-border: rgba(255, 255, 255, 0.16);
+}
+
+.mm-menu-mobile-shell {
+	max-width: 520px;
+	margin: 0 auto;
+	min-height: 100vh;
+	padding: 24px 16px 48px;
+	box-sizing: border-box;
+}
+
+.mm-menu-store-header {
+	text-align: center;
+	padding: 18px 12px 22px;
+	border-bottom: 2px solid var(--mm-menu-primary);
+}
+
+.mm-menu-store-logo {
+	max-height: 56px;
+	margin-bottom: 8px;
+	border-radius: 10px;
+}
+
+.mm-menu-store-type {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: var(--mm-menu-primary);
+	background: rgba(154, 52, 18, 0.1);
+	padding: 3px 10px;
+	border-radius: 999px;
+}
+
+.mm-menu-store-title {
+	margin: 8px 0 0;
+	font-size: 26px;
+	font-weight: 800;
+}
+
+/* Category Navigation Bar (#13.3) */
+.mm-menu-cat-nav {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	display: flex;
+	gap: 8px;
+	overflow-x: auto;
+	padding: 12px 4px;
+	background: var(--mm-menu-bg);
+	border-bottom: 1px solid var(--mm-menu-border);
+}
+
+.mm-menu-cat-pill {
+	flex: 0 0 auto;
+	border: 1px solid var(--mm-menu-border);
+	background: var(--mm-menu-card-bg);
+	color: var(--mm-menu-text);
+	border-radius: 999px;
+	padding: 7px 14px;
+	font-size: 13px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.mm-menu-cat-pill.is-active {
+	background: var(--mm-menu-primary);
+	border-color: var(--mm-menu-primary);
+	color: #ffffff;
+}
+
+.mm-menu-category-group {
+	margin-top: 24px;
+}
+
+.mm-menu-category-heading {
+	font-size: 18px;
+	font-weight: 800;
+	margin: 0 0 12px;
+	padding-left: 10px;
+	border-left: 4px solid var(--mm-menu-primary);
+}
+
+.mm-menu-items-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.mm-menu-item-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 14px;
+	padding: 16px;
+	background: var(--mm-menu-card-bg);
+	border: 1px solid var(--mm-menu-border);
+	border-radius: 14px;
+	text-decoration: none;
+	color: inherit;
+	transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.mm-menu-item-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.mm-menu-item-card.is-sold-out {
+	opacity: 0.65;
+}
+
+.mm-menu-item-card__info {
+	flex: 1;
+	min-width: 0;
+}
+
+.mm-menu-item-card__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-bottom: 6px;
+}
+
+.mm-menu-tag {
+	font-size: 11px;
+	font-weight: 700;
+	padding: 2px 8px;
+	border-radius: 6px;
+	background: rgba(154, 52, 18, 0.12);
+	color: var(--mm-menu-primary);
+}
+
+.mm-menu-tag--soldout {
+	background: #dc2626;
+	color: #ffffff;
+}
+
+.mm-menu-item-card__name {
+	margin: 0 0 4px;
+	font-size: 17px;
+	font-weight: 800;
+}
+
+.mm-menu-item-card__desc {
+	margin: 0 0 8px;
+	font-size: 13px;
+	opacity: 0.78;
+	line-height: 1.45;
+}
+
+.mm-menu-item-card__price {
+	font-size: 16px;
+	font-weight: 800;
+	color: var(--mm-menu-primary);
+}
+
+.mm-menu-item-card__thumb {
+	width: 84px;
+	height: 84px;
+	flex-shrink: 0;
+	border-radius: 12px;
+	overflow: hidden;
+	background: #f3f4f6;
+}
+
+.mm-menu-item-card__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Detail Page (`/menu/{store}/{menu-item}` #9) */
+.mm-menu-detail-topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.mm-menu-back-link {
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 14px;
+	color: var(--mm-menu-primary);
+}
+
+.mm-menu-share-btn {
+	border: 1px solid var(--mm-menu-border);
+	background: #ffffff;
+	padding: 7px 14px;
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.mm-menu-detail-hero {
+	margin: 0 0 18px;
+	border-radius: 16px;
+	overflow: hidden;
+	max-height: 280px;
+}
+
+.mm-menu-detail-hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.mm-menu-detail-header {
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--mm-menu-border);
+	margin-bottom: 16px;
+}
+
+.mm-menu-detail-title {
+	margin: 6px 0;
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.mm-menu-detail-price {
+	font-size: 20px;
+	font-weight: 800;
+	color: var(--mm-menu-primary);
+}
+
+.mm-menu-detail-short {
+	margin: 10px 0 0;
+	font-size: 14px;
+	opacity: 0.85;
+}
+
+.mm-menu-detail-card {
+	background: var(--mm-menu-card-bg);
+	border: 1px solid var(--mm-menu-border);
+	border-radius: 14px;
+	padding: 16px;
+	margin-bottom: 14px;
+}
+
+.mm-menu-detail-card h2 {
+	margin: 0 0 10px;
+	font-size: 15px;
+	font-weight: 800;
+	color: var(--mm-menu-primary);
+}
+
+.mm-menu-ingredient-chips,
+.mm-menu-origin-list {
+	margin: 0;
+	padding-left: 18px;
+	line-height: 1.7;
+	font-size: 14px;
+}
+
+.mm-menu-flavor-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.mm-menu-flavor-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+}
+
+.mm-menu-flavor-row__dots {
+	font-size: 16px;
+	letter-spacing: 2px;
+	color: var(--mm-menu-primary);
+}
+
+.mm-menu-detail-bottom-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: 22px;
+}
+
+.mm-menu-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 10px 16px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+	text-decoration: none;
+	border: 1px solid transparent;
+}
+
+.mm-menu-btn--primary {
+	background: var(--mm-menu-primary);
+	color: #ffffff;
+}
+
+.mm-menu-btn--outline {
+	background: #ffffff;
+	border-color: #d1d5db;
+	color: #111827;
+}
+
+.mm-menu-btn--sm {
+	padding: 6px 11px;
+	font-size: 12px;
+}
+
+.mm-menu-btn--full {
+	width: 100%;
+}
+
+.mm-menu-mobile-footer {
+	margin-top: 36px;
+	text-align: center;
+	font-size: 12px;
+	opacity: 0.7;
+}
