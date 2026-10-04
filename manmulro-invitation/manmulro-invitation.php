@@ -34,6 +34,7 @@ require_once MM_INV_PLUGIN_DIR . 'includes/invitation.php';
 
 if ( is_admin() ) {
 	require_once MM_INV_PLUGIN_DIR . 'admin/class-admin-menu.php';
+	require_once MM_INV_PLUGIN_DIR . 'admin/meta-boxes.php';
 }
 
 /**
@@ -86,6 +87,7 @@ final class Manmulro_Invitation {
 
 		if ( is_admin() ) {
 			MM_Inv_Admin_Menu::init();
+			MM_Inv_Admin_Meta_Boxes::init();
 		}
 	}
 

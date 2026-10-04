@@ -372,7 +372,9 @@
 			});
 		}
 
-		// Gallery Management (Up to 10 photos #13)
+		// Gallery Management (Up to 10 photos + Drag & Drop Reorder #13)
+		var galleryDragIndex = null;
+
 		function renderGalleryEditor() {
 			if (!galleryGridEl) return;
 			galleryGridEl.innerHTML = '';
@@ -384,6 +386,8 @@
 				var url = item.thumb_url || item.url;
 				var thumb = document.createElement('div');
 				thumb.className = 'mm-inv-editor-gallery-thumb';
+				thumb.draggable = true;
+				thumb.title = '드래그하여 사진 순서 변경 (#13)';
 				thumb.innerHTML =
 					'<img src="' +
 					escapeHtml(url) +
@@ -395,6 +399,25 @@
 					renderGalleryEditor();
 					renderLivePreview();
 				});
+
+				thumb.addEventListener('dragstart', function (e) {
+					galleryDragIndex = idx;
+					e.dataTransfer.effectAllowed = 'move';
+				});
+				thumb.addEventListener('dragover', function (e) {
+					e.preventDefault();
+					e.dataTransfer.dropEffect = 'move';
+				});
+				thumb.addEventListener('drop', function (e) {
+					e.preventDefault();
+					if (galleryDragIndex === null || galleryDragIndex === idx) return;
+					var movedImg = state.gallery_items.splice(galleryDragIndex, 1)[0];
+					state.gallery_items.splice(idx, 0, movedImg);
+					galleryDragIndex = null;
+					renderGalleryEditor();
+					renderLivePreview();
+				});
+
 				galleryGridEl.appendChild(thumb);
 			});
 		}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <path d="M0 380 L220 190 L410 340 L580 160 L800 360 L800 500 L0 500 Z" fill="#86efac" opacity="0.6"/>
+  <path d="M120 420 L360 210 L560 370 L720 230 L800 310 L800 500 L0 500 Z" fill="#4ade80" opacity="0.5"/>
+  <circle cx="650" cy="110" r="42" fill="#fef08a"/>
+  <text x="400" y="455" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#14532d">MANMULRO INVITATION · 모든 만남을 위한 초대장</text>
+</svg>

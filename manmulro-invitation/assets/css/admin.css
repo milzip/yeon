@@ -1,0 +1,16 @@
+/**
+ * Manmulro Invitation - WordPress Admin Stylesheet (`admin.css`)
+ */
+
+.mm-inv-qr-box {
+	text-align: center;
+	padding: 10px;
+	background: #ffffff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+}
+
+.mm-inv-qr-canvas svg {
+	display: block;
+	margin: 0 auto;
+}

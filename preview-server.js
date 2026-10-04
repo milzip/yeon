@@ -215,6 +215,7 @@ function renderTopNav(activePage) {
 				<a href="/i/a7Fk32" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'single' ? '#fff' : '#cbd5e1'};background:${activePage === 'single' ? '#2563eb' : 'transparent'};">📱 공개 초대장 (/i/a7Fk32)</a>
 				<a href="/i/a7Fk32?print=1&paper=a4" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'print' ? '#fff' : '#cbd5e1'};background:${activePage === 'print' ? '#2563eb' : 'transparent'};">🖨️ 인쇄/QR 뷰 (#38)</a>
 				<a href="/my-invitations" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'my' ? '#fff' : '#cbd5e1'};background:${activePage === 'my' ? '#2563eb' : 'transparent'};">📂 내 초대장·RSVP 관리 (#35)</a>
+				<a href="/wp-admin-demo" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'admin' ? '#fff' : '#cbd5e1'};background:${activePage === 'admin' ? '#2563eb' : 'transparent'};">⚙️ WP 관리자 (#41, #42, #50)</a>
 				<a href="/login" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'login' ? '#fff' : '#cbd5e1'};background:${activePage === 'login' ? '#2563eb' : 'transparent'};">🔐 만물로 로그인 (#10)</a>
 				<a href="/my-account" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;color:${activePage === 'account' ? '#fff' : '#cbd5e1'};background:${activePage === 'account' ? '#2563eb' : 'transparent'};">👤 통합 마이페이지 (#15)</a>
 				<a href="/download/manmulro-invitation.zip" style="padding:7px 12px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:#111827;background:#FEE500;">📦 invitation.zip</a>
@@ -999,6 +1000,73 @@ function renderMyAccountPage() {
 </html>`;
 }
 
+function renderAdminDemoPage(fishingAdded) {
+	return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WordPress 관리자 — 만물로 초대장 (#41, #42, #50)</title>
+	<link rel="stylesheet" href="/assets/inv/css/frontend.css" />
+	<link rel="stylesheet" href="/assets/inv/css/editor.css" />
+</head>
+<body style="margin:0;background:#f0f0f1;font-family:-apple-system,BlinkMacSystemFont,'Pretendard',sans-serif;">
+	${renderTopNav('admin')}
+	<div style="display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 58px);">
+		<aside style="background:#1d2327;color:#f0f0f1;padding:20px 0;">
+			<div style="padding:0 16px 14px;font-weight:800;font-size:15px;color:#72aee6;border-bottom:1px solid #2c3338;">📧 초대장 (WP Admin #41)</div>
+			<ul style="list-style:none;padding:10px 0;margin:0;font-size:13px;line-height:2.2;">
+				<li style="padding:0 16px;background:#2271b1;color:#fff;font-weight:700;">├── 대시보드 (#42)</li>
+				<li style="padding:0 16px;color:#c3c4c7;">├── 전체 초대장</li>
+				<li style="padding:0 16px;color:#c3c4c7;">├── 카테고리 (#6, #50)</li>
+				<li style="padding:0 16px;color:#c3c4c7;">├── 템플릿 (#39, #40)</li>
+				<li style="padding:0 16px;color:#c3c4c7;">├── RSVP (#26, #27)</li>
+				<li style="padding:0 16px;color:#c3c4c7;">├── 방명록 (#28)</li>
+				<li style="padding:0 16px;color:#c3c4c7;">└── 설정 (#41)</li>
+			</ul>
+		</aside>
+		<main style="padding:28px;max-width:1080px;">
+			<h1 style="margin:0 0 8px;font-size:24px;">만물로 초대장 관리자 대시보드 (#41, #42, #50)</h1>
+			<p style="margin:0 0 20px;color:#50575e;font-size:14px;">전체 초대장, 이번 달 생성, 공개 중, 전체 RSVP, 활성 회원, 인기 카테고리/템플릿 및 무코드 카테고리 확장(#50)을 관리합니다.</p>
+
+			${fishingAdded ? `<div style="padding:14px 18px;background:#ecfdf5;border:1px solid #10b981;color:#065f46;border-radius:10px;margin-bottom:20px;font-weight:700;">✅ 코드 수정 없이 '🎣 낚시모임' 카테고리(출조일, 집결시간, 집결장소, 선박, 출조비, 준비물)가 등록되었습니다! 이제 [초대장 편집기]에서 '낚시모임'을 선택해보세요.</div>` : ''}
+
+			<div class="mm-inv-stats-grid">
+				<div class="mm-inv-stat-box"><span>전체 초대장</span><strong>${store.invitations.length}건</strong></div>
+				<div class="mm-inv-stat-box"><span>이번 달 생성</span><strong>${store.invitations.length}건</strong></div>
+				<div class="mm-inv-stat-box"><span>공개 중 (PUBLISHED)</span><strong>${store.invitations.filter(x => x.status === 'PUBLISHED').length}건</strong></div>
+				<div class="mm-inv-stat-box"><span>전체 RSVP 응답</span><strong>${store.rsvps.length}건</strong></div>
+				<div class="mm-inv-stat-box mm-inv-stat-box--highlight"><span>활성 회원</span><strong>1명</strong></div>
+			</div>
+
+			<section class="mm-inv-editor-card" style="margin-bottom:20px;">
+				<div class="mm-inv-editor-card__head">
+					<div>
+						<h2>#50 최종 제품 철학: 코드 수정 없이 새 초대장 종류 등록 (Category + Template + Flexible Fields)</h2>
+						<p class="mm-inv-editor-hint">명세서 #50 예시: '낚시모임'과 기본 항목(출조일, 집결시간, 집결장소, 선박, 출조비, 준비물)을 원클릭으로 등록해보세요.</p>
+					</div>
+					<a href="/wp-admin-demo?add_fishing=1" class="mm-inv-btn mm-inv-btn--primary">🎣 '낚시모임' 카테고리 + 기본 항목 즉시 등록 (#50)</a>
+				</div>
+				<p style="font-size:13px;color:#475569;margin:0;">현재 등록된 카테고리 (${Object.keys(CATEGORIES).length}종): ${Object.values(CATEGORIES).map(c => `${c.icon} ${c.name}`).join(', ')}</p>
+			</section>
+
+			<section class="mm-inv-editor-card">
+				<h2>#39 & #40 초대장 템플릿 목록 (FREE / PREMIUM 구분 준비 완료)</h2>
+				<table class="mm-inv-table">
+					<thead>
+						<tr><th>Slug</th><th>템플릿 이름</th><th>설명</th><th>구분 (#40)</th></tr>
+					</thead>
+					<tbody>
+						${Object.values(TEMPLATES).map(t => `<tr><td><code>${esc(t.slug)}</code></td><td><strong>${esc(t.name)}</strong></td><td>${esc(t.description)}</td><td><span class="mm-inv-tier-badge mm-inv-tier-badge--${t.tier.toLowerCase()}">${t.tier}</span></td></tr>`).join('')}
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</div>
+</body>
+</html>`;
+}
+
 const server = http.createServer((req, res) => {
 	const parsed = url.parse(req.url, true);
 	const pathname = parsed.pathname;
@@ -1169,6 +1237,26 @@ const server = http.createServer((req, res) => {
 	if (pathname === '/my-account') {
 		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 		res.end(renderMyAccountPage());
+		return;
+	}
+
+	if (pathname === '/wp-admin-demo') {
+		if (parsed.query && parsed.query.add_fishing === '1') {
+			CATEGORIES.fishing = {
+				name: '낚시모임',
+				icon: '🎣',
+				presets: [
+					{ type: 'custom', label: '출조일', value: '2026-11-01' },
+					{ type: 'custom', label: '집결시간', value: '새벽 04:30' },
+					{ type: 'custom', label: '집결장소', value: '부산 다대포항 1부두' },
+					{ type: 'custom', label: '선박', value: '만물로피싱호 (22인승)' },
+					{ type: 'custom', label: '출조비', value: '110,000원 (중식·미끼 포함)' },
+					{ type: 'custom', label: '준비물', value: '구명조끼, 아이스박스, 개인 낚싯대' }
+				]
+			};
+		}
+		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+		res.end(renderAdminDemoPage(parsed.query && parsed.query.add_fishing === '1'));
 		return;
 	}
 
