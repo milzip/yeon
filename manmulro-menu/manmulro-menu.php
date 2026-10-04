@@ -3,7 +3,7 @@
  * Plugin Name:       Manmulro Menu (만물로 메뉴판 만들기)
  * Plugin URI:        https://manmulro.com
  * Description:       음식점·카페·주점·베이커리·서비스업 사업자를 위한 디지털 QR 메뉴판 & 인쇄용 메뉴판 제작 플랫폼 V1 (OCR 원본 비교 입력 + 직접 입력 통합 구조)
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            MANMULRO
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MM_MENU_VERSION', '1.0.0' );
+define( 'MM_MENU_VERSION', '1.0.1' );
 define( 'MM_MENU_PLUGIN_FILE', __FILE__ );
 define( 'MM_MENU_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MM_MENU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

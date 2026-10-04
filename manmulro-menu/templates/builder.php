@@ -19,10 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $business_types = MM_Menu_Projects_Module::get_business_types();
 $templates      = MM_Menu_Design_Module::get_templates();
-$status_labels  = MM_Menu_Items_Module::get_statuses();
-$available_tags = MM_Menu_Items_Module::get_available_tags();
 $flavor_types   = MM_Menu_Detail_Module::get_flavor_types();
-$allergen_opts  = MM_Menu_Detail_Module::get_standard_allergens();
+$allergen_opts  = MM_Menu_Detail_Module::get_allergen_options();
 $default_img    = MM_MENU_PLUGIN_URL . 'assets/images/sample-source-menu.svg';
 ?>
 <div class="mm-menu-builder-wrap"
@@ -69,9 +67,9 @@ $default_img    = MM_MENU_PLUGIN_URL . 'assets/images/sample-source-menu.svg';
 				<label>
 					<span>업종 선택 (#6.1)</span>
 					<select id="mm-init-business-type">
-						<?php foreach ( $business_types as $b_type ) : ?>
-							<option value="<?php echo esc_attr( $b_type ); ?>" <?php selected( $project ? $project['business_type'] : '음식점', $b_type ); ?>>
-								<?php echo esc_html( $b_type ); ?>
+						<?php foreach ( $business_types as $business_type_key => $business_type_data ) : ?>
+							<option value="<?php echo esc_attr( $business_type_key ); ?>" <?php selected( $project ? $project['business_type'] : '음식점', $business_type_key ); ?>>
+								<?php echo esc_html( $business_type_data['label'] ); ?>
 							</option>
 						<?php endforeach; ?>
 					</select>
