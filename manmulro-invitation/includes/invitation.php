@@ -28,6 +28,7 @@ class MM_Inv_Invitation {
 
 		add_shortcode( 'manmulro_invitation_editor', array( __CLASS__, 'render_editor_shortcode' ) );
 		add_shortcode( 'manmulro_my_invitations', array( __CLASS__, 'render_my_invitations_shortcode' ) );
+		add_filter( 'body_class', array( __CLASS__, 'filter_brand_body_classes' ) );
 
 		add_action( 'template_redirect', array( __CLASS__, 'handle_short_url_request' ), 1 );
 		add_action( 'wp_head', array( __CLASS__, 'maybe_output_noindex_and_og' ), 1 );
@@ -38,6 +39,24 @@ class MM_Inv_Invitation {
 		add_action( 'wp_ajax_mm_inv_change_status', array( __CLASS__, 'ajax_change_status' ) );
 		add_action( 'wp_ajax_mm_inv_delete', array( __CLASS__, 'ajax_delete_invitation' ) );
 		add_action( 'wp_ajax_mm_inv_upload_image', array( __CLASS__, 'ajax_upload_image' ) );
+	}
+
+	/**
+	 * Add the landing-page-inspired site skin on the invitation editor page only.
+	 *
+	 * @param array $classes Existing body classes.
+	 * @return array
+	 */
+	public static function filter_brand_body_classes( $classes ) {
+		$page_id = get_queried_object_id();
+		$content = $page_id ? get_post_field( 'post_content', $page_id ) : '';
+
+		if ( is_page( 'invitation-editor' ) || ( is_string( $content ) && has_shortcode( $content, 'manmulro_invitation_editor' ) ) ) {
+			$classes[] = 'mm-manmulo-brand-skin';
+			$classes[] = 'mm-invitation-editor-page';
+		}
+
+		return array_unique( $classes );
 	}
 
 	/**
@@ -443,14 +462,15 @@ class MM_Inv_Invitation {
 	 * @return string
 	 */
 	public static function render_editor_shortcode() {
+		wp_enqueue_style( 'mm-inv-frontend' );
+		wp_enqueue_style( 'mm-inv-editor' );
+
 		if ( ! is_user_logged_in() ) {
 			$login_url = MM_Inv_Security::get_login_url( home_url( '/invitation-editor/' ) );
 			return '<div class="mm-inv-login-required"><h3>초대장을 만들려면 로그인이 필요합니다</h3><p>만물로 통합 로그인(카카오·네이버·구글·이메일) 후 무료로 초대장을 제작하세요.</p><a class="mm-inv-primary-btn" href="' . esc_url( $login_url ) . '">로그인하러 가기</a></div>';
 		}
 
 		wp_enqueue_media();
-		wp_enqueue_style( 'mm-inv-frontend' );
-		wp_enqueue_style( 'mm-inv-editor' );
 		foreach ( array( 'simple', 'classic', 'modern', 'flower', 'nature' ) as $theme_slug ) {
 			wp_enqueue_style( 'mm-inv-theme-' . $theme_slug );
 		}

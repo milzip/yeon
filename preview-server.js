@@ -1,6 +1,6 @@
 /**
  * Interactive Preview Server for Manmulro WordPress Plugins
- * (`manmulro-social-login` & `manmulro-invitation`)
+ * (`manmulro-social-login`, `manmulro-invitation` & `manmulro-menu`)
  *
  * Serves the real plugin CSS/JS assets and simulates the WordPress AJAX endpoints
  * so the user can test every V1 feature live in the browser and download the .zip plugins.
@@ -203,24 +203,27 @@ function esc(s) {
 }
 
 function renderTopNav(activePage) {
+	const navLink = (active) => `display:inline-flex;align-items:center;padding:7px 10px;border:1px solid ${active ? '#e95c36' : 'transparent'};border-radius:9px;background:${active ? '#e95c36' : 'transparent'};color:${active ? '#fff' : '#526064'};font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;`;
+	const downloadLink = (background, color = '#fff') => `display:inline-flex;align-items:center;padding:6px 9px;border:1px solid rgba(47,58,60,.12);border-radius:8px;background:${background};color:${color};font-size:11px;font-weight:800;text-decoration:none;white-space:nowrap;`;
+
 	return `
-	<header style="background:#0f172a;color:#fff;padding:12px 20px;font-family:-apple-system,BlinkMacSystemFont,'Pretendard',sans-serif;border-bottom:1px solid #1e293b;">
+	<header style="background:rgba(255,254,250,.97);color:#1b252b;padding:12px 20px;font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Noto Sans KR',sans-serif;border-bottom:1px solid #e6e0d7;box-shadow:0 7px 22px rgba(37,34,28,.045);">
 		<div style="max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
 			<div style="display:flex;align-items:center;gap:10px;">
-				<span style="background:#9a3412;color:#fff;font-weight:800;font-size:12px;padding:4px 10px;border-radius:999px;">MANMULRO WP PLUGINS V1 (3종)</span>
-				<strong style="font-size:14px;">메뉴판 만들기 · 범용 초대장 · 통합 소셜 로그인</strong>
+				<span style="background:#263238;color:#fff;font-weight:800;font-size:11px;padding:5px 10px;border-radius:999px;letter-spacing:.03em;">MANMULRO WP PLUGINS V1 (3종)</span>
+				<strong style="font-size:13px;color:#344044;">메뉴판 만들기 · 범용 초대장 · 통합 소셜 로그인</strong>
 			</div>
-			<nav style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-				<a href="/menu-builder" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-builder' ? '#fff' : '#fde68a'};background:${activePage === 'menu-builder' ? '#9a3412' : 'rgba(154,52,18,0.35)'};">🍽️ 메뉴판 5단계 빌더</a>
-				<a href="/menu/manmulro-hansik" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-mobile' ? '#fff' : '#fde68a'};background:${activePage === 'menu-mobile' ? '#9a3412' : 'transparent'};">📱 QR 모바일 메뉴판</a>
-				<a href="/menu/manmulro-hansik/kimchi-jjigae" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-detail' ? '#fff' : '#fde68a'};background:${activePage === 'menu-detail' ? '#9a3412' : 'transparent'};">🥘 메뉴 상세페이지 (#9)</a>
-				<a href="/menu/manmulro-hansik?print=1&paper=a4&orientation=portrait" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;color:${activePage === 'menu-print' ? '#fff' : '#fde68a'};background:${activePage === 'menu-print' ? '#9a3412' : 'transparent'};">🖨️ 메뉴판 인쇄 (#14)</a>
-				<a href="/invitation-editor" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:${activePage === 'editor' ? '#fff' : '#cbd5e1'};background:${activePage === 'editor' ? '#2563eb' : 'transparent'};">✏️ 초대장 편집기</a>
-				<a href="/i/a7Fk32" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:${activePage === 'single' ? '#fff' : '#cbd5e1'};background:${activePage === 'single' ? '#2563eb' : 'transparent'};">💌 공개 초대장</a>
-				<a href="/login" style="padding:7px 11px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:${activePage === 'login' ? '#fff' : '#cbd5e1'};background:${activePage === 'login' ? '#2563eb' : 'transparent'};">🔐 소셜 로그인</a>
-				<a href="/download/manmulro-menu.zip" style="padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;color:#fff;background:#ea580c;">📦 menu.zip</a>
-				<a href="/download/manmulro-invitation.zip" style="padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;color:#111827;background:#FEE500;">📦 invitation.zip</a>
-				<a href="/download/manmulro-social-login.zip" style="padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;text-decoration:none;color:#fff;background:#03C75A;">📦 social-login.zip</a>
+			<nav style="display:flex;gap:4px;flex-wrap:wrap;align-items:center;">
+				<a href="/menu-builder" style="${navLink(activePage === 'menu-builder')}">🍽️ 메뉴판 5단계 빌더</a>
+				<a href="/menu/manmulro-hansik" style="${navLink(activePage === 'menu-mobile')}">📱 QR 모바일 메뉴판</a>
+				<a href="/menu/manmulro-hansik/kimchi-jjigae" style="${navLink(activePage === 'menu-detail')}">🥘 메뉴 상세페이지 (#9)</a>
+				<a href="/menu/manmulro-hansik?print=1&paper=a4&orientation=portrait" style="${navLink(activePage === 'menu-print')}">🖨️ 메뉴판 인쇄 (#14)</a>
+				<a href="/invitation-editor" style="${navLink(activePage === 'editor')}">✏️ 초대장 편집기</a>
+				<a href="/i/a7Fk32" style="${navLink(activePage === 'single')}">💌 공개 초대장</a>
+				<a href="/login" style="${navLink(activePage === 'login')}">🔐 소셜 로그인</a>
+				<a href="/download/manmulro-menu.zip" style="${downloadLink('#e95c36')}">📦 menu.zip</a>
+				<a href="/download/manmulro-invitation.zip" style="${downloadLink('#f2d8c5','#583d30')}">📦 invitation.zip</a>
+				<a href="/download/manmulro-social-login.zip" style="${downloadLink('#e7eee8','#375a43')}">📦 social-login.zip</a>
 			</nav>
 		</div>
 	</header>`;
@@ -271,7 +274,7 @@ function renderEditorPage(inv) {
 	<link rel="stylesheet" href="/assets/inv/themes/flower/style.css" />
 	<link rel="stylesheet" href="/assets/inv/themes/nature/style.css" />
 </head>
-<body style="margin:0;background:#f1f5f9;">
+<body class="mm-manmulo-brand-skin mm-invitation-editor-page" style="margin:0;background:#f7f4ed;">
 	${renderTopNav('editor')}
 	<div class="mm-inv-editor-app" id="mm-inv-editor-app">
 		<div class="mm-inv-editor-topbar">
@@ -1096,17 +1099,104 @@ function renderAdminDemoPage(fishingAdded) {
 </html>`;
 }
 
+function renderMenuLandingPage() {
+	const features = [
+		{ icon: '📷', eyebrow: 'PHOTO TO MENU', title: '사진으로 메뉴 가져오기', description: '메뉴판 사진에서 메뉴명과 가격을 읽어 후보로 정리합니다. 원본을 보며 확인하고 필요한 부분을 고칠 수 있습니다.' },
+		{ icon: '✍️', eyebrow: 'ONE MENU SOURCE', title: '직접 입력도 한곳에서', description: '사진 인식과 직접 입력이 같은 메뉴 관리 화면으로 이어집니다. 카테고리와 메뉴 정보를 매장에 맞게 정리하세요.' },
+		{ icon: '🎨', eyebrow: 'DESIGN TEMPLATES', title: '가게에 어울리는 디자인', description: '한식·카페·베이커리·주점 등 업종에 맞춘 기본 디자인과 색상·글꼴 설정으로 분위기를 다듬습니다.' },
+		{ icon: '📱', eyebrow: 'QR MENU', title: '모바일 메뉴판으로 공유', description: '완성한 메뉴를 모바일 메뉴판과 전용 주소로 안내하고, 테이블에 둘 QR 메뉴판으로 연결할 수 있습니다.' },
+		{ icon: '🖨️', eyebrow: 'PRINT READY', title: '인쇄용 메뉴판까지', description: '동일한 메뉴 데이터로 A4·A3 세로 또는 가로 인쇄용 메뉴판을 준비합니다.' },
+		{ icon: 'ℹ️', eyebrow: 'MENU DETAILS', title: '메뉴 정보를 더 자세히', description: '설명과 사진, 원산지·알레르기·맛 특징 등 손님에게 필요한 정보를 메뉴별로 정리할 수 있습니다.' }
+	];
+	const steps = [
+		{ number: '01', icon: '📸', title: '사진 또는 직접 입력으로 시작', description: '기존 메뉴판 사진을 불러오거나, 새 메뉴를 직접 입력해 시작합니다.' },
+		{ number: '02', icon: '✓', title: '메뉴와 가격을 확인하고 정리', description: 'OCR 후보를 원본과 비교해 수정하고, 메뉴·카테고리 정보를 정돈합니다.' },
+		{ number: '03', icon: '↗', title: '디자인을 고르고 배포', description: '매장에 어울리는 디자인을 선택해 QR 모바일 메뉴판과 인쇄용 파일을 준비합니다.' }
+	];
+	const templates = [
+		{ name: '한식 (Korean Dining)', description: '정갈하고 따뜻한 한식당·백반·국밥·고깃집 전용 디자인', accent: '#9a3412', bg: '#fffbeb', ink: '#1c1917' },
+		{ name: '카페 (Cafe & Coffee)', description: '감성적인 에스프레소 브라운 & 크림 톤의 카페 메뉴판', accent: '#78350f', bg: '#faf8f5', ink: '#292524' },
+		{ name: '고급 레스토랑 (Fine Dining)', description: '클래식 골드 & 다크 차콜 포인트의 다이닝 메뉴판', accent: '#b45309', bg: '#18181b', ink: '#f4f4f5' },
+		{ name: '심플 (Simple)', description: '가독성을 극대화한 깔끔한 화이트 & 블랙 메뉴판', accent: '#111827', bg: '#ffffff', ink: '#111827' }
+	];
+	const faqs = [
+		{ question: '사진을 올리면 메뉴가 바로 공개되나요?', answer: '아니요. 인식된 메뉴와 가격은 확인용 후보로 표시됩니다. 원본 메뉴판과 비교해 수정한 뒤 직접 확인하고 메뉴로 가져올 수 있습니다.' },
+		{ question: '사진 인식 없이 직접 입력해도 되나요?', answer: '네. 사진으로 시작하거나 직접 만들기를 선택할 수 있고, 두 방식 모두 같은 메뉴 관리 화면에서 이어서 편집할 수 있습니다.' },
+		{ question: '완성한 메뉴를 어떤 방식으로 사용할 수 있나요?', answer: '모바일 QR 메뉴판과 전용 메뉴 주소로 공유하고, A4·A3 크기의 인쇄용 메뉴판도 만들 수 있습니다.' },
+		{ question: '메뉴나 가격을 수정하면 QR 코드도 바뀌나요?', answer: '메뉴나 가격을 수정해도 메뉴판의 기존 QR 코드와 전용 주소는 유지되도록 설계되어 있습니다.' }
+	];
+
+	const featureCards = features.map((feature, index) => `
+		<article class="mm-menu-landing__feature-card">
+			<div class="mm-menu-landing__feature-card-top"><span class="mm-menu-landing__feature-icon" aria-hidden="true">${feature.icon}</span><span class="mm-menu-landing__feature-index">0${index + 1}</span></div>
+			<p class="mm-menu-landing__feature-eyebrow">${feature.eyebrow}</p><h3>${feature.title}</h3><p class="mm-menu-landing__feature-description">${feature.description}</p>
+		</article>`).join('');
+	const stepCards = steps.map((step) => `
+		<article class="mm-menu-landing__step-card"><div class="mm-menu-landing__step-top"><span>${step.number}</span><i aria-hidden="true">${step.icon}</i></div><h3>${step.title}</h3><p>${step.description}</p></article>`).join('');
+	const templateCards = templates.map((template) => `
+		<a class="mm-menu-landing__template-card" href="/menu-builder/app">
+			<div class="mm-menu-landing__template-swatch" style="--mm-template-accent:${template.accent};--mm-template-bg:${template.bg};--mm-template-ink:${template.ink};"><span class="mm-menu-landing__template-kicker">MANMULRO MENU</span><strong>오늘의 메뉴</strong><i></i><i></i><i></i><span class="mm-menu-landing__template-price">9,000원</span></div>
+			<div class="mm-menu-landing__template-info"><div><h3>${template.name}</h3><p>${template.description}</p></div><span aria-hidden="true">↗</span></div>
+		</a>`).join('');
+	const faqItems = faqs.map((faq, index) => `
+		<details class="mm-menu-landing__faq-item" ${index === 0 ? 'open' : ''}><summary><span>${faq.question}</span><i aria-hidden="true"></i></summary><p>${faq.answer}</p></details>`).join('');
+
+	return `<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>만물로 메뉴판 만들기 | 사진 한 장으로 QR·인쇄 메뉴판</title>
+	<link rel="stylesheet" href="/assets/menu/css/landing.css" />
+</head>
+<body class="mm-manmulo-brand-skin mm-menu-builder-page" style="margin:0;background:#f7f4ed;">
+	${renderTopNav('menu-builder')}
+	<main class="mm-menu-landing" id="main">
+		<section class="mm-menu-landing__hero" aria-labelledby="mm-menu-landing-title">
+			<div class="mm-menu-landing__container mm-menu-landing__hero-grid">
+				<div class="mm-menu-landing__hero-copy">
+					<p class="mm-menu-landing__eyebrow"><span aria-hidden="true">✳</span> AI 사진 OCR <i></i> 만물로 메뉴판 만들기</p>
+					<h1 id="mm-menu-landing-title">손글씨 사진 한 장,<br /><span>우리 가게 메뉴판으로.</span></h1>
+					<p class="mm-menu-landing__lead">기존 메뉴판 사진에서 메뉴와 가격을 불러오거나 직접 입력하세요. 내용을 확인해 정리한 뒤, QR 모바일 메뉴판과 인쇄용 메뉴판까지 한 번에 준비할 수 있습니다.</p>
+					<div class="mm-menu-landing__actions"><a class="mm-menu-landing__button mm-menu-landing__button--primary" href="/menu-builder/app">메뉴판 만들기 시작 <span aria-hidden="true">↗</span></a><a class="mm-menu-landing__button mm-menu-landing__button--quiet" href="#mm-menu-landing-templates">템플릿 둘러보기 <span aria-hidden="true">↓</span></a></div>
+					<p class="mm-menu-landing__microcopy"><span aria-hidden="true">↳</span> 미리보기에서는 버튼을 눌러 5단계 편집기를 바로 열 수 있어요.</p>
+					<div class="mm-menu-landing__hero-points"><span><b>01</b> 사진 또는 직접 입력</span><span><b>02</b> QR·인쇄용 결과</span></div>
+				</div>
+				<div class="mm-menu-landing__hero-art" aria-label="사진에서 메뉴판으로 이어지는 작업 예시">
+					<div class="mm-menu-landing__art-orbit mm-menu-landing__art-orbit--one"></div><div class="mm-menu-landing__art-orbit mm-menu-landing__art-orbit--two"></div>
+					<div class="mm-menu-landing__source-card"><div class="mm-menu-landing__source-head"><span><i></i> 원본 메뉴판</span><small>사진 업로드</small></div><img src="/assets/menu/images/sample-source-menu.svg" alt="메뉴판 사진 예시" /><div class="mm-menu-landing__source-caption"><span>PHOTO INPUT</span><b>사진으로 시작하기</b></div></div>
+					<div class="mm-menu-landing__art-arrow" aria-hidden="true">↗</div>
+					<article class="mm-menu-landing__result-card"><header><span class="mm-menu-landing__result-brand">MANMULRO <b>MENU</b></span><span class="mm-menu-landing__result-state"><i></i> 편집 중</span></header><div class="mm-menu-landing__result-title"><small>오늘의 메뉴</small><h2>만물로 한식당</h2></div><div class="mm-menu-landing__result-category">식사 <span>3 ITEMS</span></div><div class="mm-menu-landing__result-row"><span>김치찌개</span><b>9,000원</b></div><div class="mm-menu-landing__result-row"><span>차돌박이 된장찌개</span><b>9,500원</b></div><div class="mm-menu-landing__result-row"><span>제육볶음 정식</span><b>11,000원</b></div><footer><span>QR 모바일 메뉴</span><span>A4 · A3 인쇄</span></footer></article>
+					<div class="mm-menu-landing__floating-note mm-menu-landing__floating-note--ocr"><span>✓</span><div><b>OCR 후보 확인</b><small>원본과 비교하고 수정</small></div></div>
+					<div class="mm-menu-landing__floating-note mm-menu-landing__floating-note--qr"><span class="mm-menu-landing__mini-qr"><i></i></span><div><b>배포할 준비 완료</b><small>QR · 모바일 · 인쇄</small></div></div>
+				</div>
+			</div>
+			<div class="mm-menu-landing__hero-bottom mm-menu-landing__container"><span>메뉴는 한 번만 정리하세요.</span><span class="mm-menu-landing__hero-bottom-line"></span><span>손님에게 보여줄 방법은 더 간편하게.</span></div>
+		</section>
+		<section class="mm-menu-landing__quick-points"><div class="mm-menu-landing__container mm-menu-landing__quick-grid"><div><span class="mm-menu-landing__quick-number">01</span><p><b>사진으로 시작</b><small>기존 메뉴판을 불러오기</small></p></div><div><span class="mm-menu-landing__quick-number">02</span><p><b>내용을 확인</b><small>메뉴와 가격을 직접 정리</small></p></div><div><span class="mm-menu-landing__quick-number">03</span><p><b>QR·인쇄로 완성</b><small>매장에 맞게 공유하기</small></p></div></div></section>
+		<section class="mm-menu-landing__section mm-menu-landing__features" aria-labelledby="mm-menu-landing-features-title"><div class="mm-menu-landing__container"><div class="mm-menu-landing__section-heading"><p class="mm-menu-landing__eyebrow">ONE WORKFLOW, MORE POSSIBILITIES</p><h2 id="mm-menu-landing-features-title">사진 한 장부터 인쇄 파일까지,<br /><span>메뉴판에 필요한 일을 한곳에서.</span></h2><p>만들고, 고치고, 손님에게 보여주는 과정을 하나의 메뉴 데이터로 이어갑니다.</p></div><div class="mm-menu-landing__feature-grid">${featureCards}</div></div></section>
+		<section class="mm-menu-landing__showcase"><div class="mm-menu-landing__container mm-menu-landing__showcase-grid"><div class="mm-menu-landing__showcase-copy"><p class="mm-menu-landing__eyebrow">FROM PAPER TO YOUR MENU</p><h2>원본을 보며 확인하고,<br /><span>내 가게에 맞게 다듬어요.</span></h2><p>사진에서 읽힌 내용을 그대로 확정하지 않습니다. 원본과 인식 후보를 나란히 보고, 틀린 메뉴명이나 가격을 고친 다음 직접 메뉴로 가져올 수 있습니다.</p><ul class="mm-menu-landing__check-list"><li><span>✓</span> OCR 후보를 원본과 나란히 비교</li><li><span>✓</span> 메뉴명·가격을 원하는 대로 수정</li><li><span>✓</span> 직접 입력과 사진 인식을 이어서 사용</li></ul><a class="mm-menu-landing__text-link" href="/menu-builder/app">내 메뉴판 만들기 <span>↗</span></a></div><div class="mm-menu-landing__comparison"><div class="mm-menu-landing__comparison-source"><div class="mm-menu-landing__comparison-label"><span>01</span> 원본 사진</div><img src="/assets/menu/images/sample-source-menu.svg" alt="인식 전 원본 메뉴판 예시" loading="lazy" /><div class="mm-menu-landing__comparison-caption">촬영한 메뉴판을 기준으로 내용 확인</div></div><div class="mm-menu-landing__comparison-result"><div class="mm-menu-landing__comparison-label"><span>02</span> 정리된 메뉴</div><div class="mm-menu-landing__clean-menu"><div class="mm-menu-landing__clean-menu-head"><span>MANMULRO HANSIK</span><b>만물로 한식당</b></div><div class="mm-menu-landing__clean-category">식사 <i></i></div><div class="mm-menu-landing__clean-row"><span>김치찌개</span><b>9,000원</b></div><div class="mm-menu-landing__clean-row"><span>차돌박이 된장찌개</span><b>9,500원</b></div><div class="mm-menu-landing__clean-row"><span>제육볶음 정식</span><b>11,000원</b></div><div class="mm-menu-landing__clean-category mm-menu-landing__clean-category--second">사이드 · 별미 <i></i></div><div class="mm-menu-landing__clean-row"><span>해물파전</span><b>15,000원</b></div><div class="mm-menu-landing__clean-row"><span>수제 감자만두</span><b>6,000원</b></div><div class="mm-menu-landing__clean-footer"><span>QR MOBILE</span><span>PRINT READY</span></div></div><div class="mm-menu-landing__comparison-caption">수정 가능한 메뉴 데이터로 이어서 관리</div></div><div class="mm-menu-landing__comparison-mark" aria-hidden="true">→</div></div></div></section>
+		<section class="mm-menu-landing__section mm-menu-landing__steps"><div class="mm-menu-landing__container"><div class="mm-menu-landing__section-heading mm-menu-landing__section-heading--center"><p class="mm-menu-landing__eyebrow">A SIMPLE THREE-STEP FLOW</p><h2>복잡한 디자인 툴 대신,<br /><span>필요한 순서대로 차근차근.</span></h2><p>만물로 메뉴판 만들기의 5단계 편집기를 따라가며 메뉴판을 완성하세요.</p></div><div class="mm-menu-landing__steps-grid">${stepCards}</div></div></section>
+		<section class="mm-menu-landing__templates" id="mm-menu-landing-templates"><div class="mm-menu-landing__container"><div class="mm-menu-landing__templates-heading"><div><p class="mm-menu-landing__eyebrow">BUILT-IN DESIGN LIBRARY</p><h2>가게 분위기에 맞는<br /><span>메뉴판 디자인을 골라보세요.</span></h2></div><div class="mm-menu-landing__template-count"><b>8</b><span>기본<br />템플릿</span></div></div><p class="mm-menu-landing__templates-intro">내용은 그대로 두고 디자인만 바꾸거나, 대표 색상·글꼴을 조정해 매장에 맞게 꾸밀 수 있습니다.</p><div class="mm-menu-landing__template-grid">${templateCards}</div><p class="mm-menu-landing__templates-footnote">한식 · 카페 · 레스토랑 · 심플 · 모던 · 전통 · 베이커리 · 주점 등 업종과 분위기에 맞는 8종</p></div></section>
+		<section class="mm-menu-landing__faq"><div class="mm-menu-landing__container mm-menu-landing__faq-grid"><div class="mm-menu-landing__faq-intro"><p class="mm-menu-landing__eyebrow">GOOD TO KNOW</p><h2>시작하기 전에<br /><span>궁금한 점을 확인하세요.</span></h2><p>메뉴판 제작 과정과 배포 방식에 대해 자주 묻는 내용을 모았습니다.</p><a class="mm-menu-landing__text-link" href="/menu-builder/app">편집기에서 시작하기 <span>↗</span></a></div><div class="mm-menu-landing__faq-list">${faqItems}</div></div></section>
+		<section class="mm-menu-landing__cta"><div class="mm-menu-landing__container mm-menu-landing__cta-inner"><div class="mm-menu-landing__cta-decoration"><span></span><span></span><span></span></div><p class="mm-menu-landing__eyebrow">YOUR NEXT MENU STARTS HERE</p><h2>메뉴판을 새로 만들 시간,<br /><span>이제는 더 가볍게.</span></h2><p>사진으로 시작하든, 직접 입력하든. 우리 가게에 필요한 메뉴판을 만물로에서 준비해보세요.</p><a class="mm-menu-landing__button mm-menu-landing__button--light" href="/menu-builder/app">만물로 메뉴판 만들기 <span>↗</span></a><small>미리보기에서는 5단계 편집기를 바로 열 수 있습니다.</small></div></section>
+	</main>
+</body>
+</html>`;
+}
+
 function renderMenuBuilderPage() {
 	return `<!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>만물로 메뉴판 만들기 5단계 빌더 | MANMULRO MENU V1</title>
+	<title>만물로 메뉴판 만들기 5단계 편집기 | MANMULRO MENU V1</title>
 	<link rel="stylesheet" href="/assets/menu/css/mobile-menu.css" />
 	<link rel="stylesheet" href="/assets/menu/css/builder.css" />
+	<link rel="stylesheet" href="/assets/menu/css/landing.css" />
 </head>
-<body style="margin:0;background:#f1f5f9;">
+<body class="mm-manmulo-brand-skin mm-menu-builder-page" style="margin:0;background:#f7f4ed;">
 	${renderTopNav('menu-builder')}
 	<div class="mm-menu-builder-wrap" id="mm-menu-builder-app" data-default-source-img="/assets/menu/images/sample-source-menu.svg">
 		<header class="mm-menu-stepper">
@@ -1806,10 +1896,16 @@ const server = http.createServer((req, res) => {
 		return;
 	}
 
-	// Manmulro Menu Builder (`/menu-builder`)
-	if (pathname === '/menu-builder' || pathname === '/menu-builder/') {
+	// Menu landing page (`/menu-builder`) and interactive five-step builder demo (`/menu-builder/app`).
+	if (pathname === '/menu-builder/app' || pathname === '/menu-builder/app/') {
 		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 		res.end(renderMenuBuilderPage());
+		return;
+	}
+
+	if (pathname === '/menu-builder' || pathname === '/menu-builder/') {
+		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+		res.end(renderMenuLandingPage());
 		return;
 	}
 
@@ -1827,10 +1923,10 @@ const server = http.createServer((req, res) => {
 		return;
 	}
 
-	// Default `/` -> Menu Builder (or Invitation Editor if `/invitation-editor` or `?id=` is passed)
+	// Default `/` -> public Menu Builder landing page (or Invitation Editor if `/invitation-editor` or `?id=` is passed).
 	if (pathname !== '/invitation-editor' && (!parsed.query || !parsed.query.id)) {
 		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-		res.end(renderMenuBuilderPage());
+		res.end(renderMenuLandingPage());
 		return;
 	}
 

@@ -3,7 +3,7 @@
  * Plugin Name:       Manmulro Invitation (만물로 범용 초대장 플랫폼)
  * Plugin URI:        https://manmulro.com
  * Description:       세상의 모든 만남을 위한 범용 초대장 플랫폼 V1 — 템플릿·자유 항목(Flexible Fields)·실시간 미리보기·고유 단축 URL(/i/code)·QR·인쇄(A4/A5/엽서)·네이버 지도·RSVP·방명록·사진앨범 지원
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            MANMULRO
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MM_INV_VERSION', '1.0.1' );
+define( 'MM_INV_VERSION', '1.0.2' );
 define( 'MM_INV_PLUGIN_FILE', __FILE__ );
 define( 'MM_INV_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MM_INV_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

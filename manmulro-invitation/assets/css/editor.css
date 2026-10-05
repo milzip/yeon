@@ -938,3 +938,397 @@ body.mm-inv-cover-picker-open {
 		flex-direction: column;
 	}
 }
+
+/* Landing-page-inspired brand skin. Editor behavior and invitation themes are unchanged. */
+body.mm-invitation-editor-page {
+	--mm-brand-ink: #1b252b;
+	--mm-brand-muted: #747e7d;
+	--mm-brand-paper: #f7f4ed;
+	--mm-brand-white: #fffefa;
+	--mm-brand-line: #e6e0d7;
+	--mm-brand-accent: #e95c36;
+	--mm-brand-accent-dark: #c94624;
+	background: var(--mm-brand-paper);
+	color: var(--mm-brand-ink);
+}
+
+body.mm-invitation-editor-page .entry-header,
+body.mm-invitation-editor-page .page-header,
+body.mm-invitation-editor-page .entry-title,
+body.mm-invitation-editor-page .wp-block-post-title {
+	display: none;
+}
+
+body.mm-invitation-editor-page #masthead,
+body.mm-invitation-editor-page .site-header,
+body.mm-invitation-editor-page header.site-header,
+body.mm-invitation-editor-page .elementor-location-header,
+body.mm-invitation-editor-page .wp-site-blocks > header {
+	background: rgba(255, 254, 250, 0.96) !important;
+	border-bottom: 1px solid var(--mm-brand-line) !important;
+	box-shadow: 0 8px 24px rgba(37, 34, 28, 0.045);
+}
+
+body.mm-invitation-editor-page #masthead .main-navigation a,
+body.mm-invitation-editor-page .site-header .wp-block-navigation a,
+body.mm-invitation-editor-page .elementor-location-header nav a {
+	transition: color 160ms ease, background-color 160ms ease;
+}
+
+body.mm-invitation-editor-page #masthead .main-navigation a:hover,
+body.mm-invitation-editor-page .site-header .wp-block-navigation a:hover,
+body.mm-invitation-editor-page .elementor-location-header nav a:hover {
+	color: var(--mm-brand-accent) !important;
+}
+
+body.mm-invitation-editor-page #colophon,
+body.mm-invitation-editor-page footer#colophon,
+body.mm-invitation-editor-page footer.site-footer,
+body.mm-invitation-editor-page .site-footer,
+body.mm-invitation-editor-page .elementor-location-footer,
+body.mm-invitation-editor-page .wp-site-blocks > footer,
+body.mm-invitation-editor-page .wp-block-template-part.footer {
+	background: #1b252b !important;
+	color: #f8f3eb !important;
+	border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.mm-invitation-editor-page #colophon a,
+body.mm-invitation-editor-page .site-footer a,
+body.mm-invitation-editor-page .elementor-location-footer a,
+body.mm-invitation-editor-page .wp-site-blocks > footer a,
+body.mm-invitation-editor-page .wp-block-template-part.footer a {
+	color: #f3c8b6 !important;
+	text-decoration-color: rgba(243, 200, 182, 0.45);
+}
+
+body.mm-invitation-editor-page #colophon a:hover,
+body.mm-invitation-editor-page .site-footer a:hover,
+body.mm-invitation-editor-page .elementor-location-footer a:hover,
+body.mm-invitation-editor-page .wp-site-blocks > footer a:hover,
+body.mm-invitation-editor-page .wp-block-template-part.footer a:hover {
+	color: #ffffff !important;
+}
+
+body.mm-invitation-editor-page #colophon .menu,
+body.mm-invitation-editor-page .site-footer .menu,
+body.mm-invitation-editor-page .site-footer .footer-menu,
+body.mm-invitation-editor-page .elementor-location-footer .elementor-nav-menu,
+body.mm-invitation-editor-page .wp-site-blocks > footer .wp-block-navigation__container {
+	gap: 10px 22px;
+}
+
+.mm-inv-editor-app {
+	--mm-editor-ink: #1b252b;
+	--mm-editor-muted: #727d7d;
+	--mm-editor-paper: #fffefa;
+	--mm-editor-line: #e6e0d7;
+	--mm-editor-accent: #e95c36;
+	max-width: 1380px;
+	margin: 32px auto;
+	color: var(--mm-editor-ink);
+}
+
+.mm-inv-editor-topbar {
+	padding: 15px 20px;
+	border-color: var(--mm-editor-line);
+	border-radius: 18px;
+	background: rgba(255, 254, 250, 0.96);
+	box-shadow: 0 12px 30px rgba(42, 36, 29, 0.07);
+	backdrop-filter: blur(14px);
+}
+
+.mm-inv-editor-status-badge {
+	background: #f2ece3;
+	color: #596365;
+}
+
+.mm-inv-editor-card {
+	border-color: var(--mm-editor-line);
+	border-radius: 20px;
+	background: var(--mm-editor-paper);
+	box-shadow: 0 8px 24px rgba(42, 36, 29, 0.035);
+}
+
+.mm-inv-editor-card h2 {
+	color: var(--mm-editor-ink);
+	letter-spacing: -0.035em;
+}
+
+.mm-inv-editor-hint,
+.mm-inv-cover-url-details {
+	color: var(--mm-editor-muted);
+}
+
+.mm-inv-mobile-tab {
+	border-color: #dfd8ce;
+	background: #fffefa;
+	color: #4f5a5d;
+}
+
+.mm-inv-mobile-tab.is-active {
+	border-color: #263238;
+	background: #263238;
+	color: #fff;
+}
+
+.mm-inv-editor-app .mm-inv-category-chip {
+	border-color: #e6e0d7;
+	background: #faf8f3;
+	color: #475255;
+}
+
+.mm-inv-editor-app .mm-inv-category-chip:hover,
+.mm-inv-editor-app .mm-inv-template-card:hover {
+	border-color: #dcaa94;
+}
+
+.mm-inv-editor-app .mm-inv-category-chip.is-selected {
+	border-color: var(--mm-editor-accent);
+	background: #fff0e8;
+	color: #a84428;
+	box-shadow: 0 0 0 2px rgba(233, 92, 54, 0.12);
+}
+
+.mm-inv-editor-app .mm-inv-template-card {
+	border-color: var(--mm-editor-line);
+	border-radius: 15px;
+	background: #fffefa;
+	transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.mm-inv-editor-app .mm-inv-template-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 9px 20px rgba(44, 37, 29, 0.06);
+}
+
+.mm-inv-editor-app .mm-inv-template-card.is-selected {
+	border-color: var(--mm-editor-accent);
+	background: #fff8f3;
+	box-shadow: 0 0 0 2px rgba(233, 92, 54, 0.13);
+}
+
+.mm-inv-editor-app .mm-inv-tier-badge--free {
+	background: #e8f1e8;
+	color: #4a7554;
+}
+
+.mm-inv-editor-app .mm-inv-tier-badge--premium {
+	background: #fff0e0;
+	color: #a85e2d;
+}
+
+.mm-inv-editor-app .mm-inv-form-field label {
+	color: #394548;
+}
+
+.mm-inv-editor-app .mm-inv-form-field input[type="text"],
+.mm-inv-editor-app .mm-inv-form-field input[type="number"],
+.mm-inv-editor-app .mm-inv-form-field input[type="date"],
+.mm-inv-editor-app .mm-inv-form-field input[type="time"],
+.mm-inv-editor-app .mm-inv-form-field input[type="url"],
+.mm-inv-editor-app .mm-inv-form-field input[type="password"],
+.mm-inv-editor-app .mm-inv-form-field textarea,
+.mm-inv-editor-app .mm-inv-input,
+.mm-inv-editor-app .mm-inv-input-sm,
+.mm-inv-editor-app .mm-inv-select {
+	border-color: #ded8ce;
+	border-radius: 10px;
+	background: #fffefa;
+	color: #293437;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.mm-inv-editor-app .mm-inv-form-field input:focus,
+.mm-inv-editor-app .mm-inv-form-field textarea:focus,
+.mm-inv-editor-app .mm-inv-input:focus,
+.mm-inv-editor-app .mm-inv-input-sm:focus,
+.mm-inv-editor-app .mm-inv-select:focus {
+	border-color: var(--mm-editor-accent);
+	outline: 0;
+	box-shadow: 0 0 0 3px rgba(233, 92, 54, 0.13);
+}
+
+.mm-inv-editor-app .mm-inv-btn {
+	border-radius: 10px;
+	transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.mm-inv-editor-app .mm-inv-btn:hover {
+	transform: translateY(-1px);
+}
+
+.mm-inv-editor-app .mm-inv-btn--primary {
+	border-color: var(--mm-editor-accent);
+	background: var(--mm-editor-accent);
+	box-shadow: 0 5px 12px rgba(196, 71, 38, 0.14);
+	color: #fff !important;
+}
+
+.mm-inv-editor-app .mm-inv-btn--primary:hover {
+	background: #c94624;
+	box-shadow: 0 8px 17px rgba(196, 71, 38, 0.19);
+}
+
+.mm-inv-editor-app .mm-inv-btn--outline {
+	border-color: #ddd6cb;
+	background: #fffefa;
+	color: #3e4a4d !important;
+}
+
+.mm-inv-editor-app .mm-inv-btn--outline:hover {
+	border-color: #d69a80;
+	background: #fff6f0;
+}
+
+.mm-inv-editor-app .mm-inv-btn--ghost {
+	color: #697475 !important;
+}
+
+.mm-inv-editor-app .mm-inv-cover-stage {
+	border-color: #dfd8ce;
+	border-radius: 16px;
+	box-shadow: 0 10px 25px rgba(38, 34, 28, 0.08);
+}
+
+.mm-inv-editor-app .mm-inv-cover-stage__badge {
+	border-color: rgba(255, 255, 255, 0.7);
+	background: rgba(38, 49, 54, 0.82);
+	backdrop-filter: blur(10px);
+}
+
+.mm-inv-cover-picker__dialog {
+	border-color: rgba(255, 255, 255, 0.86);
+	border-radius: 22px;
+	background: #faf8f3;
+	box-shadow: 0 28px 90px rgba(33, 39, 38, 0.32);
+}
+
+.mm-inv-cover-picker__header {
+	border-bottom-color: var(--mm-editor-line, #e6e0d7);
+	background: #fffefa;
+}
+
+.mm-inv-cover-picker__header .mm-inv-badge {
+	background: #fff0e8;
+	color: #a84428;
+}
+
+.mm-inv-cover-picker__close {
+	border-color: #e2dbd1;
+	background: #fffefa;
+	color: #4b5759;
+}
+
+.mm-inv-cover-picker__close:hover {
+	border-color: #d69a80;
+	background: #fff0e8;
+}
+
+.mm-inv-cover-picker .mm-inv-cover-gallery-item {
+	border-color: #e2dbd1;
+	border-radius: 13px;
+	background: #fffefa;
+}
+
+.mm-inv-cover-picker .mm-inv-cover-gallery-item:hover,
+.mm-inv-cover-picker .mm-inv-cover-gallery-item:focus-visible {
+	border-color: #e95c36;
+	box-shadow: 0 10px 24px rgba(42, 36, 29, 0.12);
+}
+
+.mm-inv-cover-picker .mm-inv-cover-gallery-item.is-current {
+	border: 2px solid #e95c36;
+	box-shadow: 0 0 0 2px rgba(233, 92, 54, 0.12);
+}
+
+.mm-inv-cover-picker .mm-inv-cover-gallery-item__caption strong { color: #293437; }
+.mm-inv-cover-picker .mm-inv-cover-gallery-item__caption small { color: #778180; }
+
+.mm-inv-cover-picker__footer {
+	border-top-color: #e6e0d7;
+	background: #fffefa;
+}
+
+.mm-inv-cover-picker__section + .mm-inv-cover-picker__section {
+	border-top-color: #e5ded3;
+}
+
+.mm-inv-cover-picker__empty {
+	border-color: #e5ded3;
+	background: #fffefa;
+	color: #788180;
+}
+
+.mm-inv-preview-pane { top: 86px; }
+
+.mm-inv-phone-mockup {
+	background: #263238;
+	box-shadow: 0 25px 54px rgba(35, 42, 42, 0.2);
+}
+
+.mm-inv-editor-app :focus-visible,
+.mm-inv-cover-picker :focus-visible,
+.mm-inv-login-required :focus-visible {
+	outline: 3px solid rgba(233, 92, 54, 0.42);
+	outline-offset: 3px;
+}
+
+body.mm-invitation-editor-page .mm-inv-login-required {
+	max-width: 620px;
+	margin: clamp(36px, 8vw, 90px) auto;
+	padding: clamp(28px, 5vw, 46px);
+	border: 1px solid #e6e0d7;
+	border-radius: 20px;
+	background: #fffefa;
+	box-shadow: 0 18px 48px rgba(42, 36, 29, 0.08);
+	color: #273236;
+	text-align: center;
+}
+
+body.mm-invitation-editor-page .mm-inv-login-required h3 {
+	margin: 0 0 11px;
+	color: #1b252b;
+	font-size: clamp(22px, 4vw, 30px);
+	font-weight: 800;
+	letter-spacing: -0.05em;
+}
+
+body.mm-invitation-editor-page .mm-inv-login-required p {
+	margin: 0 0 22px;
+	color: #747e7d;
+	font-size: 14px;
+	line-height: 1.75;
+}
+
+body.mm-invitation-editor-page .mm-inv-login-required .mm-inv-primary-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 0 22px;
+	border: 1px solid #e95c36;
+	border-radius: 10px;
+	background: #e95c36;
+	box-shadow: 0 7px 16px rgba(196, 71, 38, 0.16);
+	color: #fff !important;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+body.mm-invitation-editor-page .mm-inv-login-required .mm-inv-primary-btn:hover {
+	background: #c94624;
+}
+
+@media (max-width: 720px) {
+	.mm-inv-editor-app { margin: 17px auto; padding: 0 12px; }
+	.mm-inv-editor-topbar { padding: 12px 14px; border-radius: 15px; }
+	.mm-inv-editor-card { padding: 19px; border-radius: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mm-inv-editor-app *,
+	.mm-inv-cover-picker * {
+		transition-duration: 0.01ms !important;
+	}
+}

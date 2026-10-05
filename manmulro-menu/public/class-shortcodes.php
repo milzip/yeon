@@ -2,7 +2,7 @@
 /**
  * Public Shortcodes Controller (`public/class-shortcodes.php`)
  *
- * Provides `[manmulro_menu_builder]` for the 5-step Menu Builder application.
+ * Provides a public landing page for guests and the existing 5-step Menu Builder for signed-in users.
  *
  * @package Manmulro_Menu
  */
@@ -18,25 +18,51 @@ class MM_Menu_Shortcodes {
 	 */
 	public static function init() {
 		add_shortcode( 'manmulro_menu_builder', array( __CLASS__, 'render_builder' ) );
+		add_filter( 'body_class', array( __CLASS__, 'filter_brand_body_classes' ) );
 	}
 
 	/**
-	 * Render the 5-Step Menu Builder (`[manmulro_menu_builder]`).
+	 * Add a page-scoped design hook without changing the site's header or menu markup.
+	 *
+	 * @param array $classes Existing body classes.
+	 * @return array
+	 */
+	public static function filter_brand_body_classes( $classes ) {
+		$page_id = get_queried_object_id();
+		$content = $page_id ? get_post_field( 'post_content', $page_id ) : '';
+
+		if ( is_page( 'menu-builder' ) || ( is_string( $content ) && has_shortcode( $content, 'manmulro_menu_builder' ) ) ) {
+			$classes[] = 'mm-manmulo-brand-skin';
+			$classes[] = 'mm-menu-builder-page';
+		}
+
+		return array_unique( $classes );
+	}
+
+	/**
+	 * Render the public landing page or the existing 5-step Menu Builder.
 	 *
 	 * @return string
 	 */
 	public static function render_builder() {
+		wp_enqueue_style( 'mm-menu-mobile' );
+
 		if ( ! is_user_logged_in() ) {
+			wp_enqueue_style( 'mm-menu-brand' );
 			$login_url = class_exists( 'MM_SL_Redirect' )
 				? MM_SL_Redirect::get_login_url( home_url( '/menu-builder/' ) )
 				: wp_login_url( home_url( '/menu-builder/' ) );
+			$templates  = MM_Menu_Design_Module::get_templates();
+			$default_img = MM_MENU_PLUGIN_URL . 'assets/images/sample-source-menu.svg';
 
-			return '<div class="mm-menu-login-box"><h3>만물로 메뉴판 만들기는 로그인 후 이용할 수 있습니다</h3><p>기존 메뉴판이 있으면 사진으로, 없으면 직접 만들어보세요.</p><a class="mm-menu-btn mm-menu-btn--primary" href="' . esc_url( $login_url ) . '">로그인하러 가기</a></div>';
+			ob_start();
+			include MM_MENU_PLUGIN_DIR . 'templates/landing.php';
+			return ob_get_clean();
 		}
 
 		wp_enqueue_media();
-		wp_enqueue_style( 'mm-menu-mobile' );
 		wp_enqueue_style( 'mm-menu-builder' );
+		wp_enqueue_style( 'mm-menu-brand' );
 		wp_enqueue_script( 'mm-menu-ocr-viewer' );
 		wp_enqueue_script( 'mm-menu-mobile' );
 		wp_enqueue_script( 'mm-menu-builder' );
