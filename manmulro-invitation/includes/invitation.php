@@ -71,7 +71,7 @@ class MM_Inv_Invitation {
 			'simple'  => array(
 				'slug'        => 'simple',
 				'name'        => 'Simple (심플)',
-				'description' => '깔끔하고 정돈된 타이포그래피 중심의 미니멀 디자인',
+				'description' => '종이 질감과 절제된 패턴이 화면 전체를 감싸는 미니멀 디자인',
 				'tier'        => 'FREE',
 				'accent'      => '#111827',
 				'bg'          => '#ffffff',
@@ -79,7 +79,7 @@ class MM_Inv_Invitation {
 			'classic' => array(
 				'slug'        => 'classic',
 				'name'        => 'Classic (클래식)',
-				'description' => '격식 있는 모임·결혼·기념일에 어울리는 우아한 세리프 스타일',
+				'description' => '한지 질감과 은은한 緣 모티프 배경을 더한 우아한 세리프 스타일',
 				'tier'        => 'FREE',
 				'accent'      => '#7c5a3a',
 				'bg'          => '#fdfaf6',
@@ -87,7 +87,7 @@ class MM_Inv_Invitation {
 			'modern'  => array(
 				'slug'        => 'modern',
 				'name'        => 'Modern (모던)',
-				'description' => '기업 행사·전시·동창회에 어울리는 세련된 다크 포인트 스타일',
+				'description' => '현대적인 기하학 배경과 선명한 포인트의 세련된 디자인',
 				'tier'        => 'FREE',
 				'accent'      => '#2563eb',
 				'bg'          => '#f8fafc',
@@ -95,7 +95,7 @@ class MM_Inv_Invitation {
 			'flower'  => array(
 				'slug'        => 'flower',
 				'name'        => 'Flower (플라워)',
-				'description' => '따뜻한 파스텔 플로럴 감성의 화사한 초대장 디자인',
+				'description' => '화사한 파스텔 꽃무늬가 화면 전체에 번지는 로맨틱 디자인',
 				'tier'        => 'PREMIUM',
 				'accent'      => '#db2777',
 				'bg'          => '#fff7f9',
@@ -103,7 +103,7 @@ class MM_Inv_Invitation {
 			'nature'  => array(
 				'slug'        => 'nature',
 				'name'        => 'Nature (네이처)',
-				'description' => '등산·골프·사이클·러닝·야외 모임에 어울리는 싱그러운 그린 스타일',
+				'description' => '은은한 山 글자와 산 능선 배경을 담은 싱그러운 아웃도어 디자인',
 				'tier'        => 'FREE',
 				'accent'      => '#15803d',
 				'bg'          => '#f4fbf7',
@@ -203,6 +203,7 @@ class MM_Inv_Invitation {
 			'location_name'     => $location_name,
 			'address'           => $address,
 			'cover_image_url'   => MM_Inv_Gallery::get_cover_image_url( $post->ID ),
+			'cover_attachment_id' => (int) get_post_thumbnail_id( $post->ID ),
 			'gallery_items'     => MM_Inv_Gallery::get_gallery_items( $post->ID ),
 			'fields'            => $fields,
 			'rsvp_enabled'      => '0' !== (string) get_post_meta( $post->ID, '_mm_rsvp_enabled', true ),
@@ -583,8 +584,13 @@ class MM_Inv_Invitation {
 		if ( isset( $_POST['cover_image_url'] ) ) {
 			update_post_meta( $invitation_id, '_mm_cover_image_url', esc_url_raw( wp_unslash( $_POST['cover_image_url'] ) ) );
 		}
-		if ( isset( $_POST['cover_attachment_id'] ) && (int) $_POST['cover_attachment_id'] > 0 ) {
-			set_post_thumbnail( $invitation_id, (int) $_POST['cover_attachment_id'] );
+		if ( isset( $_POST['cover_attachment_id'] ) ) {
+			$cover_attachment_id = absint( wp_unslash( $_POST['cover_attachment_id'] ) );
+			if ( $cover_attachment_id > 0 ) {
+				set_post_thumbnail( $invitation_id, $cover_attachment_id );
+			} else {
+				delete_post_thumbnail( $invitation_id );
+			}
 		}
 		if ( isset( $_POST['gallery_items'] ) ) {
 			MM_Inv_Gallery::save_gallery_items( $invitation_id, $_POST['gallery_items'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized

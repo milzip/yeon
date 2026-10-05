@@ -67,16 +67,16 @@ $kakao_js_key  = isset( $settings['kakao_js_key'] ) ? $settings['kakao_js_key'] 
 
 			<h1 class="mm-inv-hero__title"><?php echo esc_html( $inv['title'] ); ?></h1>
 
-			<?php if ( ! empty( $inv['summary'] ) ) : ?>
-				<p class="mm-inv-hero__subtitle"><?php echo nl2br( esc_html( $inv['summary'] ) ); ?></p>
-			<?php endif; ?>
-
 			<?php if ( ! empty( $inv['cover_image_url'] ) ) : ?>
 				<figure class="mm-inv-hero__cover">
 					<img src="<?php echo esc_url( $inv['cover_image_url'] ); ?>"
 					     alt="<?php echo esc_attr( $inv['title'] ); ?>"
 					     decoding="async" />
 				</figure>
+			<?php endif; ?>
+
+			<?php if ( ! empty( $inv['summary'] ) ) : ?>
+				<p class="mm-inv-hero__subtitle"><?php echo nl2br( esc_html( $inv['summary'] ) ); ?></p>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $inv['event_date'] ) || ! empty( $inv['location_name'] ) ) : ?>

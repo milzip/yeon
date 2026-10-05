@@ -105,10 +105,12 @@
 }
 
 .mm-inv-print-cover {
+	width: 100%;
+	aspect-ratio: 16 / 9;
 	margin: 14px 0;
 	border-radius: 12px;
 	overflow: hidden;
-	max-height: 85mm;
+	background: var(--mm-accent-soft, #f1f5f9);
 }
 
 .mm-inv-print-cover img {

@@ -1,6 +1,6 @@
 /**
  * Manmulro Invitation Theme: Modern (모던)
- * Crisp royal blue & slate architectural look for corporate events, exhibitions, and reunions.
+ * Midnight blue geometry with a crisp, editorial invitation card.
  */
 .mm-inv-theme-modern {
 	--mm-bg: #0f172a;
@@ -11,6 +11,28 @@
 	--mm-muted: #475569;
 	--mm-border: #cbd5e1;
 	--mm-heading-font: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
+}
+
+.mm-inv-body.mm-inv-theme-modern,
+.mm-inv-phone-mockup__screen.mm-inv-theme-modern {
+	background-color: var(--mm-bg);
+	background-image: linear-gradient(rgba(9, 18, 38, 0.04), rgba(9, 18, 38, 0.04)), url("background.svg");
+	background-size: cover, cover;
+	background-position: center, center;
+	background-repeat: no-repeat, no-repeat;
+}
+
+.mm-inv-body.mm-inv-theme-modern {
+	background-attachment: fixed, fixed;
+}
+
+.mm-inv-phone-mockup__screen.mm-inv-theme-modern {
+	background-attachment: scroll, scroll;
+}
+
+.mm-inv-theme-modern .mm-inv-container {
+	background: rgba(255, 255, 255, 0.94);
+	backdrop-filter: blur(7px);
 }
 
 .mm-inv-theme-modern .mm-inv-hero {

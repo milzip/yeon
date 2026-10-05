@@ -15,8 +15,13 @@
 
 .mm-inv-body {
 	margin: 0;
+	min-height: 100vh;
 	padding: 24px 12px 64px;
-	background: var(--mm-bg);
+	background-color: var(--mm-bg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	color: var(--mm-text);
 	font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 	line-height: 1.6;
@@ -89,16 +94,21 @@
 }
 
 .mm-inv-hero__cover {
+	box-sizing: border-box;
+	width: 100%;
+	aspect-ratio: 16 / 9;
 	margin: 0 0 20px;
 	border-radius: 16px;
 	overflow: hidden;
 	border: 1px solid var(--mm-border);
+	background: var(--mm-accent-soft);
 }
 
 .mm-inv-hero__cover img {
 	display: block;
 	width: 100%;
-	max-height: 440px;
+	height: 100%;
+	aspect-ratio: 16 / 9;
 	object-fit: cover;
 }
 

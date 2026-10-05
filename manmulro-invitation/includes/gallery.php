@@ -51,6 +51,7 @@ class MM_Inv_Gallery {
 				if ( $thumb_url ) {
 					$items[] = array(
 						'id'        => $att_id,
+						'url'       => $thumb_url,
 						'thumb_url' => $thumb_url,
 						'full_url'  => $large_url ? $large_url : $thumb_url,
 					);
@@ -62,6 +63,7 @@ class MM_Inv_Gallery {
 				$fallback  = esc_url_raw( $entry['url'] );
 				$items[]   = array(
 					'id'        => $att_id,
+					'url'       => $thumb_url ? $thumb_url : $fallback,
 					'thumb_url' => $thumb_url ? $thumb_url : $fallback,
 					'full_url'  => $large_url ? $large_url : ( ! empty( $entry['full_url'] ) ? esc_url_raw( $entry['full_url'] ) : $fallback ),
 				);

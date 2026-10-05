@@ -1,9 +1,9 @@
 /**
  * Manmulro Invitation Theme: Flower (플라워 - PREMIUM)
- * Soft blush & rose botanical styling for celebrations, baby showers, weddings, and parties.
+ * Soft blush paper with delicate botanical motifs across the full page.
  */
 .mm-inv-theme-flower {
-	--mm-bg: #fdf2f8;
+	--mm-bg: #f4e4eb;
 	--mm-card-bg: #fffafb;
 	--mm-accent: #db2777;
 	--mm-accent-soft: #fce7f3;
@@ -13,6 +13,28 @@
 	--mm-heading-font: "Nanum Myeongjo", "Pretendard", serif;
 }
 
+.mm-inv-body.mm-inv-theme-flower,
+.mm-inv-phone-mockup__screen.mm-inv-theme-flower {
+	background-color: var(--mm-bg);
+	background-image: linear-gradient(rgba(255, 248, 251, 0.04), rgba(255, 248, 251, 0.04)), url("background.svg");
+	background-size: cover, cover;
+	background-position: center, center;
+	background-repeat: no-repeat, no-repeat;
+}
+
+.mm-inv-body.mm-inv-theme-flower {
+	background-attachment: fixed, fixed;
+}
+
+.mm-inv-phone-mockup__screen.mm-inv-theme-flower {
+	background-attachment: scroll, scroll;
+}
+
+.mm-inv-theme-flower .mm-inv-container {
+	background: rgba(255, 250, 251, 0.9);
+	backdrop-filter: blur(8px);
+}
+
 .mm-inv-theme-flower .mm-inv-hero {
-	background: radial-gradient(circle at top, #fce7f3 0%, #fffafb 75%);
+	background: radial-gradient(circle at top, rgba(252, 231, 243, 0.88) 0%, rgba(255, 250, 251, 0.82) 75%);
 }

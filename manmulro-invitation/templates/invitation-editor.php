@@ -15,10 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$categories    = MM_Inv_Taxonomies::get_default_categories();
-$templates     = MM_Inv_Invitation::get_templates();
-$field_types   = MM_Inv_Fields::get_supported_types();
-$initial_data  = $inv ? $inv : array(
+$categories         = MM_Inv_Taxonomies::get_default_categories();
+$templates          = MM_Inv_Invitation::get_templates();
+$field_types        = MM_Inv_Fields::get_supported_types();
+$sample_image_base  = MM_INV_PLUGIN_URL . 'assets/images/invitation-samples/';
+$initial_data       = $inv ? $inv : array(
 	'id'                => 0,
 	'code'              => '',
 	'short_url'         => '',
@@ -33,11 +34,12 @@ $initial_data  = $inv ? $inv : array(
 	'event_end_time'    => '15:00',
 	'location_name'     => '범어사 매표소 입구 광장',
 	'address'           => '부산광역시 금정구 범어사로 250',
-	'cover_image_url'   => '',
+	'cover_image_url'   => $sample_image_base . 'hiking.svg',
+	'cover_attachment_id' => 0,
 	'gallery_items'     => array(),
 	'fields'            => array(
 		array(
-			'id'      => 'fld_1',
+			'id'      => 'sample_hiking_greeting',
 			'type'    => 'textarea',
 			'label'   => '초대 인사말',
 			'value'   => "깊어가는 가을, 만물로 산악회 정기 산행에 회원 여러분을 초대합니다.\n가벼운 발걸음으로 오셔서 함께 담소 나누어요.",
@@ -45,34 +47,34 @@ $initial_data  = $inv ? $inv : array(
 			'order'   => 1,
 		),
 		array(
-			'id'      => 'fld_2',
+			'id'      => 'sample_hiking_1',
 			'type'    => 'custom',
 			'label'   => '산행코스',
-			'value'   => '범어사 → 북문 → 고당봉 (약 4시간 소요)',
+			'value'   => '범어사 → 북문 → 고당봉 (약 4시간)',
 			'visible' => true,
 			'order'   => 2,
 		),
 		array(
-			'id'      => 'fld_3',
+			'id'      => 'sample_hiking_2',
 			'type'    => 'custom',
-			'label'   => '회비',
-			'value'   => '25,000원 (하산 후 뒤풀이 식사 포함)',
+			'label'   => '집결장소 및 시간',
+			'value'   => '범어사 매표소 앞 오전 9시',
 			'visible' => true,
 			'order'   => 3,
 		),
 		array(
-			'id'      => 'fld_4',
+			'id'      => 'sample_hiking_3',
 			'type'    => 'custom',
 			'label'   => '준비물',
-			'value'   => '등산화, 스틱, 식수 1L, 방풍 자켓',
+			'value'   => '등산화, 스틱, 식수 1L, 간식',
 			'visible' => true,
 			'order'   => 4,
 		),
 		array(
-			'id'      => 'fld_5',
-			'type'    => 'phone',
-			'label'   => '산행대장 연락처',
-			'value'   => '010-2345-6789',
+			'id'      => 'sample_hiking_4',
+			'type'    => 'custom',
+			'label'   => '회비',
+			'value'   => '25,000원 (뒤풀이 식사 포함)',
 			'visible' => true,
 			'order'   => 5,
 		),
@@ -134,6 +136,7 @@ $initial_data  = $inv ? $inv : array(
 						</button>
 					<?php endforeach; ?>
 				</div>
+				<p class="mm-inv-editor-hint mm-inv-category-note">종류를 선택하면 제목·인사말·추천 이미지가 해당 행사에 맞게 바뀝니다. 직접 수정한 내용은 덮어쓰지 않습니다.</p>
 			</section>
 
 			<!-- Step 2: 템플릿 디자인 선택 (#11, #39, #40) -->
@@ -143,11 +146,16 @@ $initial_data  = $inv ? $inv : array(
 					<span class="mm-inv-editor-hint">디자인을 변경해도 입력하신 모든 내용은 그대로 유지됩니다 (#11)</span>
 				</div>
 				<div class="mm-inv-template-grid" id="mm-editor-template-grid">
-					<?php foreach ( $templates as $tpl_slug => $tpl ) : ?>
-						<button type="button"
-						        class="mm-inv-template-card <?php echo ( $tpl_slug === $initial_data['template'] ) ? 'is-selected' : ''; ?>"
-						        data-template-slug="<?php echo esc_attr( $tpl_slug ); ?>">
-							<span class="mm-inv-template-swatch" style="background:<?php echo esc_attr( $tpl['bg'] ); ?>;border-color:<?php echo esc_attr( $tpl['accent'] ); ?>;">
+						<?php foreach ( $templates as $tpl_slug => $tpl ) : ?>
+							<?php
+							$tpl_theme_slug       = sanitize_key( $tpl_slug );
+							$tpl_background_file  = MM_INV_PLUGIN_DIR . 'templates/themes/' . $tpl_theme_slug . '/background.svg';
+							$tpl_background_url   = file_exists( $tpl_background_file ) ? MM_INV_PLUGIN_URL . 'templates/themes/' . $tpl_theme_slug . '/background.svg' : '';
+							?>
+							<button type="button"
+							        class="mm-inv-template-card <?php echo ( $tpl_slug === $initial_data['template'] ) ? 'is-selected' : ''; ?>"
+							        data-template-slug="<?php echo esc_attr( $tpl_slug ); ?>">
+								<span class="mm-inv-template-swatch" style="background-color:<?php echo esc_attr( $tpl['bg'] ); ?>;<?php if ( $tpl_background_url ) : ?>background-image:url('<?php echo esc_url( $tpl_background_url ); ?>');<?php endif; ?>border-color:<?php echo esc_attr( $tpl['accent'] ); ?>;">
 								<span style="background:<?php echo esc_attr( $tpl['accent'] ); ?>;"></span>
 							</span>
 							<div class="mm-inv-template-card__info">
@@ -169,6 +177,28 @@ $initial_data  = $inv ? $inv : array(
 					<div class="mm-inv-form-field mm-inv-form-field--full">
 						<label for="mm_ed_title">초대장 제목 *</label>
 						<input type="text" id="mm_ed_title" value="<?php echo esc_attr( $initial_data['title'] ); ?>" placeholder="예: 2026 가을 정기 산행 초대 / 김철수·박영희 결혼식에 초대합니다" />
+					</div>
+
+					<div class="mm-inv-form-field mm-inv-form-field--full mm-inv-cover-field">
+						<div class="mm-inv-cover-field__heading">
+							<label>초대장 대표 이미지 <span>16:9</span></label>
+							<p>선택한 종류의 예시 이미지가 표시됩니다. 이미지를 누르면 추천 이미지와 내 앨범을 둘러볼 수 있어요.</p>
+						</div>
+						<button type="button" class="mm-inv-cover-stage" id="mm-btn-open-cover-gallery" aria-label="초대장 이미지 갤러리 열기">
+							<img id="mm_ed_cover_preview" src="<?php echo esc_url( $initial_data['cover_image_url'] ); ?>" alt="<?php echo esc_attr( $initial_data['category_name'] ); ?> 초대장 예시" />
+							<span class="mm-inv-cover-stage__shade"></span>
+							<span class="mm-inv-cover-stage__badge" id="mm-cover-category-badge"><?php echo esc_html( $initial_data['category_name'] ); ?> 추천 이미지</span>
+							<span class="mm-inv-cover-stage__edit">🖼️ 갤러리에서 이미지 바꾸기</span>
+						</button>
+						<div class="mm-inv-cover-actions">
+							<button type="button" class="mm-inv-btn mm-inv-btn--outline" data-trigger-cover-upload>내 이미지 올리기</button>
+							<button type="button" class="mm-inv-btn mm-inv-btn--ghost" id="mm-btn-reset-cover-sample">이 종류의 예시 이미지로</button>
+							<input type="file" id="mm_ed_cover_file" accept="image/*" hidden />
+						</div>
+						<details class="mm-inv-cover-url-details">
+							<summary>이미지 주소(URL)를 직접 입력</summary>
+							<input type="url" id="mm_ed_cover_url" value="<?php echo esc_attr( $initial_data['cover_image_url'] ); ?>" placeholder="https://example.com/invitation-cover.jpg" />
+						</details>
 					</div>
 
 					<div class="mm-inv-form-field mm-inv-form-field--full">
@@ -225,22 +255,11 @@ $initial_data  = $inv ? $inv : array(
 				</div>
 			</section>
 
-			<!-- Step 5: 대표 이미지 1장 & 사진앨범 최대 10장 (#12, #13, #14) -->
+			<!-- Step 5: 사진앨범 최대 10장 (#13, #14) -->
 			<section class="mm-inv-editor-card">
-				<h2>5. 대표 이미지 및 사진앨범 (최대 10장)</h2>
+				<h2>5. 사진앨범 (최대 10장)</h2>
 
 				<div class="mm-inv-media-block">
-					<label class="mm-inv-media-label">대표 이미지 (Cover · 공유 썸네일 · 카드 대표사진 #12)</label>
-					<div class="mm-inv-cover-control">
-						<input type="url" id="mm_ed_cover_url" value="<?php echo esc_attr( $initial_data['cover_image_url'] ); ?>" placeholder="대표 이미지 URL 입력 또는 파일 업로드" />
-						<label class="mm-inv-btn mm-inv-btn--outline mm-inv-upload-btn">
-							📷 이미지 업로드
-							<input type="file" id="mm_ed_cover_file" accept="image/*" hidden />
-						</label>
-					</div>
-				</div>
-
-				<div class="mm-inv-media-block" style="margin-top:18px;">
 					<div class="mm-inv-editor-card__head">
 						<label class="mm-inv-media-label">사진앨범 (<span id="mm-gallery-counter">0</span> / 10) (#13)</label>
 						<div style="display:flex;gap:8px;">
@@ -352,14 +371,49 @@ $initial_data  = $inv ? $inv : array(
 			</div>
 		</aside>
 
-	</div>
-</div>
+		</div>
 
-<script>
-	window.mmInvEditorConfig = {
+		<div class="mm-inv-cover-picker" id="mm-cover-gallery-modal" hidden>
+			<button type="button" class="mm-inv-cover-picker__backdrop" data-cover-picker-close aria-label="이미지 갤러리 닫기"></button>
+			<section class="mm-inv-cover-picker__dialog" role="dialog" aria-modal="true" aria-labelledby="mm-cover-picker-title" tabindex="-1">
+				<header class="mm-inv-cover-picker__header">
+					<div>
+						<span class="mm-inv-badge">16:9 COVER GALLERY</span>
+						<h2 id="mm-cover-picker-title">초대장 이미지 갤러리</h2>
+						<p>종류별 예시를 고르거나, 내가 올린 사진앨범에서 대표 이미지를 선택하세요.</p>
+					</div>
+					<button type="button" class="mm-inv-cover-picker__close" data-cover-picker-close aria-label="닫기">&times;</button>
+				</header>
+				<div class="mm-inv-cover-picker__body">
+					<section class="mm-inv-cover-picker__section">
+						<div class="mm-inv-cover-picker__section-head">
+							<div><h3>종류별 추천 이미지</h3><p>현재 선택한 초대장 종류와 어울리는 이미지입니다.</p></div>
+						</div>
+						<div class="mm-inv-cover-gallery-grid" id="mm-cover-sample-grid"></div>
+					</section>
+					<section class="mm-inv-cover-picker__section">
+						<div class="mm-inv-cover-picker__section-head">
+							<div><h3>내 사진앨범</h3><p>이 초대장에 추가한 사진을 대표 이미지로 사용할 수 있어요.</p></div>
+							<button type="button" class="mm-inv-btn mm-inv-btn--outline mm-inv-btn--sm" data-trigger-cover-upload>새 사진 올리기</button>
+						</div>
+						<div class="mm-inv-cover-gallery-grid" id="mm-cover-user-grid"></div>
+						<p class="mm-inv-cover-picker__empty" id="mm-cover-user-empty" hidden>아직 내 앨범에 사진이 없습니다. 새 사진을 올리면 여기에서 대표 이미지로 선택할 수 있어요.</p>
+					</section>
+				</div>
+				<footer class="mm-inv-cover-picker__footer">
+					<button type="button" class="mm-inv-btn mm-inv-btn--outline" data-trigger-cover-upload>📤 내 컴퓨터에서 이미지 업로드</button>
+					<button type="button" class="mm-inv-btn mm-inv-btn--ghost" data-cover-picker-close>닫기</button>
+				</footer>
+			</section>
+		</div>
+	</div>
+
+	<script>
+		window.mmInvEditorConfig = {
 		ajaxUrl: <?php echo wp_json_encode( admin_url( 'admin-ajax.php' ) ); ?>,
 		nonce: <?php echo wp_json_encode( wp_create_nonce( 'mm_inv_editor_nonce' ) ); ?>,
 		homeUrl: <?php echo wp_json_encode( home_url( '/' ) ); ?>,
+		sampleImageBase: <?php echo wp_json_encode( $sample_image_base ); ?>,
 		categories: <?php echo wp_json_encode( $categories ); ?>,
 		templates: <?php echo wp_json_encode( $templates ); ?>,
 		fieldTypes: <?php echo wp_json_encode( $field_types ); ?>,

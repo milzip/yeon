@@ -31,7 +31,7 @@ const store = {
 			event_end_time: '15:00',
 			location_name: '범어사 매표소 입구 광장',
 			address: '부산광역시 금정구 범어사로 250',
-			cover_image_url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=960&q=80',
+			cover_image_url: '/assets/inv/images/invitation-samples/hiking.svg',
 			gallery_items: [
 				{
 					id: 1,
@@ -170,11 +170,11 @@ const CATEGORIES = {
 };
 
 const TEMPLATES = {
-	simple: { slug: 'simple', name: 'Simple (심플)', description: '깔끔하고 정돈된 타이포그래피 중심의 미니멀 디자인', tier: 'FREE', accent: '#111827', bg: '#ffffff' },
-	classic: { slug: 'classic', name: 'Classic (클래식)', description: '격식 있는 모임·결혼·기념일에 어울리는 우아한 세리프 스타일', tier: 'FREE', accent: '#7c5a3a', bg: '#fdfaf6' },
-	modern: { slug: 'modern', name: 'Modern (모던)', description: '기업 행사·전시·동창회에 어울리는 세련된 다크 포인트 스타일', tier: 'FREE', accent: '#2563eb', bg: '#f8fafc' },
-	flower: { slug: 'flower', name: 'Flower (플라워)', description: '따뜻한 파스텔 플로럴 감성의 화사한 초대장 디자인', tier: 'PREMIUM', accent: '#db2777', bg: '#fff7f9' },
-	nature: { slug: 'nature', name: 'Nature (네이처)', description: '등산·골프·사이클·러닝·야외 모임에 어울리는 싱그러운 그린 스타일', tier: 'FREE', accent: '#15803d', bg: '#f4fbf7' }
+	simple: { slug: 'simple', name: 'Simple (심플)', description: '종이 질감과 절제된 패턴이 화면 전체를 감싸는 미니멀 디자인', tier: 'FREE', accent: '#111827', bg: '#ffffff' },
+	classic: { slug: 'classic', name: 'Classic (클래식)', description: '한지 질감과 은은한 緣 모티프 배경을 더한 우아한 세리프 스타일', tier: 'FREE', accent: '#7c5a3a', bg: '#fdfaf6' },
+	modern: { slug: 'modern', name: 'Modern (모던)', description: '현대적인 기하학 배경과 선명한 포인트의 세련된 디자인', tier: 'FREE', accent: '#2563eb', bg: '#f8fafc' },
+	flower: { slug: 'flower', name: 'Flower (플라워)', description: '화사한 파스텔 꽃무늬가 화면 전체에 번지는 로맨틱 디자인', tier: 'PREMIUM', accent: '#db2777', bg: '#fff7f9' },
+	nature: { slug: 'nature', name: 'Nature (네이처)', description: '은은한 山 글자와 산 능선 배경을 담은 싱그러운 아웃도어 디자인', tier: 'FREE', accent: '#15803d', bg: '#f4fbf7' }
 };
 
 const FIELD_TYPES = {
@@ -241,7 +241,7 @@ function renderEditorPage(inv) {
 		.map(
 			([slug, t]) => `
 		<button type="button" class="mm-inv-template-card ${slug === inv.template ? 'is-selected' : ''}" data-template-slug="${esc(slug)}">
-			<span class="mm-inv-template-swatch" style="background:${esc(t.bg)};border-color:${esc(t.accent)};">
+			<span class="mm-inv-template-swatch" style="background-color:${esc(t.bg)};background-image:url('/assets/inv/themes/${esc(slug)}/background.svg');background-size:cover;border-color:${esc(t.accent)};">
 				<span style="background:${esc(t.accent)};"></span>
 			</span>
 			<div class="mm-inv-template-card__info">
@@ -296,7 +296,8 @@ function renderEditorPage(inv) {
 						<h2>1. 초대장 종류 선택 (18개 카테고리 #6)</h2>
 						<button type="button" class="mm-inv-btn mm-inv-btn--sm mm-inv-btn--outline" id="mm-btn-apply-category-presets">+ 선택 종류 추천 항목 추가 (#50)</button>
 					</div>
-					<div class="mm-inv-category-grid">${catChips}</div>
+					<div class="mm-inv-category-grid" id="mm-editor-category-grid">${catChips}</div>
+					<p class="mm-inv-editor-hint mm-inv-category-note">종류를 선택하면 제목·인사말·추천 이미지가 해당 행사에 맞게 바뀝니다. 직접 수정한 내용은 덮어쓰지 않습니다.</p>
 				</section>
 
 				<section class="mm-inv-editor-card">
@@ -313,6 +314,27 @@ function renderEditorPage(inv) {
 						<div class="mm-inv-form-field mm-inv-form-field--full">
 							<label for="mm_ed_title">초대장 제목 *</label>
 							<input type="text" id="mm_ed_title" value="${esc(inv.title)}" />
+						</div>
+						<div class="mm-inv-form-field mm-inv-form-field--full mm-inv-cover-field">
+							<div class="mm-inv-cover-field__heading">
+								<label>초대장 대표 이미지 <span>16:9</span></label>
+								<p>선택한 종류의 예시 이미지가 표시됩니다. 이미지를 누르면 추천 이미지와 내 앨범을 둘러볼 수 있어요.</p>
+							</div>
+							<button type="button" class="mm-inv-cover-stage" id="mm-btn-open-cover-gallery" aria-label="초대장 이미지 갤러리 열기">
+								<img id="mm_ed_cover_preview" src="${esc(inv.cover_image_url)}" alt="${esc(inv.category_name)} 초대장 예시" />
+								<span class="mm-inv-cover-stage__shade"></span>
+								<span class="mm-inv-cover-stage__badge" id="mm-cover-category-badge">${esc(inv.category_name)} 추천 이미지</span>
+								<span class="mm-inv-cover-stage__edit">🖼️ 갤러리에서 이미지 바꾸기</span>
+							</button>
+							<div class="mm-inv-cover-actions">
+								<button type="button" class="mm-inv-btn mm-inv-btn--outline" data-trigger-cover-upload>내 이미지 올리기</button>
+								<button type="button" class="mm-inv-btn mm-inv-btn--ghost" id="mm-btn-reset-cover-sample">이 종류의 예시 이미지로</button>
+								<input type="file" id="mm_ed_cover_file" accept="image/*" hidden />
+							</div>
+							<details class="mm-inv-cover-url-details">
+								<summary>이미지 주소(URL)를 직접 입력</summary>
+								<input type="url" id="mm_ed_cover_url" value="${esc(inv.cover_image_url)}" placeholder="https://example.com/invitation-cover.jpg" />
+							</details>
 						</div>
 						<div class="mm-inv-form-field mm-inv-form-field--full">
 							<label for="mm_ed_summary">한 줄 요약 / 부제</label>
@@ -356,18 +378,8 @@ function renderEditorPage(inv) {
 				</section>
 
 				<section class="mm-inv-editor-card">
-					<h2>5. 대표 이미지 1장 & 사진앨범 최대 10장 (#12, #13, #14)</h2>
+					<h2>5. 사진앨범 (최대 10장)</h2>
 					<div class="mm-inv-media-block">
-						<label class="mm-inv-media-label">대표 이미지 (Cover · 공유 썸네일 · 내 초대장 카드 #12)</label>
-						<div class="mm-inv-cover-control">
-							<input type="url" id="mm_ed_cover_url" value="${esc(inv.cover_image_url)}" placeholder="대표 이미지 URL 또는 로컬 이미지 선택" />
-							<label class="mm-inv-btn mm-inv-btn--outline">
-								📷 이미지 선택
-								<input type="file" id="mm_ed_cover_file" accept="image/*" hidden />
-							</label>
-						</div>
-					</div>
-					<div class="mm-inv-media-block" style="margin-top:18px;">
 						<div class="mm-inv-editor-card__head">
 							<label class="mm-inv-media-label">사진앨범 (<span id="mm-gallery-counter">0</span> / 10) (#13)</label>
 							<div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -451,6 +463,20 @@ function renderEditorPage(inv) {
 				</div>
 			</aside>
 		</div>
+		<div class="mm-inv-cover-picker" id="mm-cover-gallery-modal" hidden>
+			<button type="button" class="mm-inv-cover-picker__backdrop" data-cover-picker-close aria-label="이미지 갤러리 닫기"></button>
+			<section class="mm-inv-cover-picker__dialog" role="dialog" aria-modal="true" aria-labelledby="mm-cover-picker-title" tabindex="-1">
+				<header class="mm-inv-cover-picker__header">
+					<div><span class="mm-inv-badge">16:9 COVER GALLERY</span><h2 id="mm-cover-picker-title">초대장 이미지 갤러리</h2><p>종류별 예시를 고르거나, 내가 올린 사진앨범에서 대표 이미지를 선택하세요.</p></div>
+					<button type="button" class="mm-inv-cover-picker__close" data-cover-picker-close aria-label="닫기">&times;</button>
+				</header>
+				<div class="mm-inv-cover-picker__body">
+					<section class="mm-inv-cover-picker__section"><div class="mm-inv-cover-picker__section-head"><div><h3>종류별 추천 이미지</h3><p>현재 선택한 초대장 종류와 어울리는 이미지입니다.</p></div></div><div class="mm-inv-cover-gallery-grid" id="mm-cover-sample-grid"></div></section>
+					<section class="mm-inv-cover-picker__section"><div class="mm-inv-cover-picker__section-head"><div><h3>내 사진앨범</h3><p>이 초대장에 추가한 사진을 대표 이미지로 사용할 수 있어요.</p></div><button type="button" class="mm-inv-btn mm-inv-btn--outline mm-inv-btn--sm" data-trigger-cover-upload>새 사진 올리기</button></div><div class="mm-inv-cover-gallery-grid" id="mm-cover-user-grid"></div><p class="mm-inv-cover-picker__empty" id="mm-cover-user-empty" hidden>아직 내 앨범에 사진이 없습니다. 새 사진을 올리면 여기에서 대표 이미지로 선택할 수 있어요.</p></section>
+				</div>
+				<footer class="mm-inv-cover-picker__footer"><button type="button" class="mm-inv-btn mm-inv-btn--outline" data-trigger-cover-upload>📤 내 컴퓨터에서 이미지 업로드</button><button type="button" class="mm-inv-btn mm-inv-btn--ghost" data-cover-picker-close>닫기</button></footer>
+			</section>
+		</div>
 	</div>
 
 	<script>
@@ -458,6 +484,8 @@ function renderEditorPage(inv) {
 			ajaxUrl: '/wp-admin/admin-ajax.php',
 			nonce: 'demo_nonce',
 			homeUrl: '/',
+			sampleImageBase: '/assets/inv/images/invitation-samples/',
+			sampleMode: true,
 			categories: ${JSON.stringify(CATEGORIES)},
 			templates: ${JSON.stringify(TEMPLATES)},
 			fieldTypes: ${JSON.stringify(FIELD_TYPES)},
@@ -522,12 +550,12 @@ function renderSingleInvitationPage(inv, isPrint, paper) {
 	</div>
 	<article class="mm-inv-print-sheet mm-inv-print-sheet--${esc(validPaper)}">
 		<div class="mm-inv-print-sheet__inner">
-			<header class="mm-inv-print-header">
-				<span class="mm-inv-category-pill">${esc(inv.category_name)}</span>
-				<h1 class="mm-inv-print-title">${esc(inv.title)}</h1>
-				<p class="mm-inv-print-subtitle">${esc(inv.summary)}</p>
-			</header>
-			${inv.cover_image_url ? `<div class="mm-inv-print-cover"><img src="${esc(inv.cover_image_url)}" alt="Cover" /></div>` : ''}
+				<header class="mm-inv-print-header">
+					<span class="mm-inv-category-pill">${esc(inv.category_name)}</span>
+					<h1 class="mm-inv-print-title">${esc(inv.title)}</h1>
+					${inv.cover_image_url ? `<div class="mm-inv-print-cover"><img src="${esc(inv.cover_image_url)}" alt="Cover" /></div>` : ''}
+					<p class="mm-inv-print-subtitle">${esc(inv.summary)}</p>
+				</header>
 			<section class="mm-inv-print-details">
 				<div class="mm-inv-field-row"><span class="mm-inv-field-row__label">일시</span><span class="mm-inv-field-row__value">${esc(inv.event_date)} ${esc(inv.event_time)}</span></div>
 				<div class="mm-inv-field-row"><span class="mm-inv-field-row__label">장소</span><span class="mm-inv-field-row__value">${esc(inv.location_name)} (${esc(inv.address)})</span></div>
@@ -582,8 +610,8 @@ function renderSingleInvitationPage(inv, isPrint, paper) {
 					<span class="mm-inv-dday-pill">D-15</span>
 				</div>
 				<h1 class="mm-inv-hero__title">${esc(inv.title)}</h1>
-				<p class="mm-inv-hero__subtitle">${esc(inv.summary)}</p>
 				${inv.cover_image_url ? `<figure class="mm-inv-hero__cover"><img src="${esc(inv.cover_image_url)}" alt="${esc(inv.title)}" /></figure>` : ''}
+				<p class="mm-inv-hero__subtitle">${esc(inv.summary)}</p>
 				<div class="mm-inv-hero__meta">
 					<div class="mm-inv-hero__meta-item"><strong>일시</strong><span>${esc(inv.event_date)} ${esc(inv.event_time)} ~ ${esc(inv.event_end_time)}</span></div>
 					<div class="mm-inv-hero__meta-item"><strong>장소</strong><span>${esc(inv.location_name)}</span></div>
@@ -1567,10 +1595,18 @@ const server = http.createServer((req, res) => {
 			? path.join(__dirname, 'manmulro-invitation', 'templates', rel)
 			: path.join(__dirname, 'manmulro-invitation', 'assets', rel);
 		if (fs.existsSync(mapped)) {
-			const ext = path.extname(mapped);
-			res.writeHead(200, {
-				'Content-Type': ext === '.css' ? 'text/css; charset=utf-8' : 'application/javascript; charset=utf-8'
-			});
+			const ext = path.extname(mapped).toLowerCase();
+			const mime = {
+				'.css': 'text/css; charset=utf-8',
+				'.js': 'application/javascript; charset=utf-8',
+				'.svg': 'image/svg+xml',
+				'.png': 'image/png',
+				'.jpg': 'image/jpeg',
+				'.jpeg': 'image/jpeg',
+				'.webp': 'image/webp',
+				'.gif': 'image/gif'
+			}[ext] || 'application/octet-stream';
+			res.writeHead(200, { 'Content-Type': mime });
 			fs.createReadStream(mapped).pipe(res);
 			return;
 		}

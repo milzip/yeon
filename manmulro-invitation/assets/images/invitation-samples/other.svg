@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">기타 초대장 예시 이미지</title><desc id="desc">소중한 모임에 초대합니다</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#776995"/><stop offset="1" stop-color="#c6b4d6"/></linearGradient>
+  <linearGradient id="veil" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".88"/><stop offset="1" stop-color="#fff" stop-opacity=".58"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <pattern id="grain" width="44" height="44" patternUnits="userSpaceOnUse"><circle cx="4" cy="6" r="1" fill="#fff" opacity=".35"/><circle cx="27" cy="23" r="1" fill="#fff" opacity=".24"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grain)"/>
+<circle cx="1240" cy="365" r="440" fill="url(#glow)" opacity=".58"/>
+<path d="M890 900 Q1130 650 1380 900Z" fill="#fff" opacity=".13"/><path d="M1090 900 Q1320 610 1600 900Z" fill="#fff" opacity=".2"/>
+<rect x="86" y="82" width="1428" height="736" rx="42" fill="url(#veil)" stroke="#fff" stroke-opacity=".72" stroke-width="2"/>
+<path d="M130 184 H530" stroke="#776995" stroke-width="3" stroke-opacity=".42"/>
+<text x="132" y="160" fill="#776995" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-size="21" font-weight="700" letter-spacing="5">MANMULRO INVITATION · SAMPLE</text>
+<text x="132" y="330" fill="#17251f" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-size="68" font-weight="800">기타 초대</text>
+<text x="136" y="395" fill="#38443e" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-size="26" font-weight="500">소중한 모임에 초대합니다</text>
+<text x="136" y="468" fill="#536159" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-size="22">반가운 분들과 함께할 뜻깊은 자리에 정중히 초대합니다.</text>
+<rect x="132" y="630" width="292" height="64" rx="32" fill="#776995"/>
+<text x="278" y="671" text-anchor="middle" fill="#fff" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-size="20" font-weight="700">종류별 예시 이미지</text>
+<circle cx="1204" cy="452" r="230" fill="#776995" fill-opacity=".16" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+<circle cx="1204" cy="452" r="185" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="4 15"/>
+<text x="1204" y="520" text-anchor="middle" fill="#776995" fill-opacity=".82" font-family="serif" font-size="300" font-weight="700">邀</text>
+<text x="1204" y="758" text-anchor="middle" fill="#776995" font-family="Pretendard, 'Noto Sans KR', sans-serif" font-size="26" font-weight="800">✨  기타</text>
+<path d="M945 720 C1050 665 1120 800 1250 725 S1455 700 1494 755" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="4"/>
+</svg>

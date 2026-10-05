@@ -54,19 +54,18 @@ $template_slug = sanitize_key( $inv['template'] );
 	<!-- Printable Sheet (#38) -->
 	<article class="mm-inv-print-sheet mm-inv-print-sheet--<?php echo esc_attr( $paper ); ?>">
 		<div class="mm-inv-print-sheet__inner">
-			<header class="mm-inv-print-header">
-				<span class="mm-inv-category-pill"><?php echo esc_html( $inv['category_name'] ); ?></span>
-				<h1 class="mm-inv-print-title"><?php echo esc_html( $inv['title'] ); ?></h1>
-				<?php if ( ! empty( $inv['summary'] ) ) : ?>
-					<p class="mm-inv-print-subtitle"><?php echo nl2br( esc_html( $inv['summary'] ) ); ?></p>
-				<?php endif; ?>
-			</header>
-
-			<?php if ( ! empty( $inv['cover_image_url'] ) ) : ?>
-				<div class="mm-inv-print-cover">
-					<img src="<?php echo esc_url( $inv['cover_image_url'] ); ?>" alt="<?php echo esc_attr( $inv['title'] ); ?>" />
-				</div>
-			<?php endif; ?>
+				<header class="mm-inv-print-header">
+					<span class="mm-inv-category-pill"><?php echo esc_html( $inv['category_name'] ); ?></span>
+					<h1 class="mm-inv-print-title"><?php echo esc_html( $inv['title'] ); ?></h1>
+					<?php if ( ! empty( $inv['cover_image_url'] ) ) : ?>
+						<div class="mm-inv-print-cover">
+							<img src="<?php echo esc_url( $inv['cover_image_url'] ); ?>" alt="<?php echo esc_attr( $inv['title'] ); ?>" />
+						</div>
+					<?php endif; ?>
+					<?php if ( ! empty( $inv['summary'] ) ) : ?>
+						<p class="mm-inv-print-subtitle"><?php echo nl2br( esc_html( $inv['summary'] ) ); ?></p>
+					<?php endif; ?>
+				</header>
 
 			<section class="mm-inv-print-details">
 				<?php if ( ! empty( $inv['event_date'] ) ) : ?>

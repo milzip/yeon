@@ -1,14 +1,36 @@
 /**
  * Manmulro Invitation Theme: Simple (심플)
- * Clean, high-contrast minimalist typography theme.
+ * Clean, high-contrast paper with a quiet full-page texture.
  */
 .mm-inv-theme-simple {
-	--mm-bg: #f8fafc;
+	--mm-bg: #f1f0eb;
 	--mm-card-bg: #ffffff;
 	--mm-accent: #111827;
 	--mm-accent-soft: #f1f5f9;
 	--mm-text: #111827;
 	--mm-muted: #64748b;
 	--mm-border: #e2e8f0;
-	--mm-heading-font: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+	--mm-heading-font: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+.mm-inv-body.mm-inv-theme-simple,
+.mm-inv-phone-mockup__screen.mm-inv-theme-simple {
+	background-color: var(--mm-bg);
+	background-image: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), url("background.svg");
+	background-size: cover, cover;
+	background-position: center, center;
+	background-repeat: no-repeat, no-repeat;
+}
+
+.mm-inv-body.mm-inv-theme-simple {
+	background-attachment: fixed, fixed;
+}
+
+.mm-inv-phone-mockup__screen.mm-inv-theme-simple {
+	background-attachment: scroll, scroll;
+}
+
+.mm-inv-theme-simple .mm-inv-container {
+	background: rgba(255, 255, 255, 0.94);
+	backdrop-filter: blur(5px);
 }
